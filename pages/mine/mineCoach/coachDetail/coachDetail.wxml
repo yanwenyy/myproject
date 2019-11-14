@@ -1,0 +1,52 @@
+<!--政策包详情pages/mine/mineCoach/coachDetail/coachDetail.wxml-->
+<view class="container">
+    <view class="coachDetail-head box-sizing">
+        <image class="coachDetail-head-bg" src="../../../../img/coachDetail-head.png" mode="scaleToFill"></image>
+        <view class="coachDetail-head-msg box-sizing">
+            <view class="coachDetail-h-m-name">2019年9月政策</view>
+            <view class="coachDetail-h-m-date">距离测试结束 ：32天   23:33:34</view>
+            <view class="coachDetail-h-m-need">
+                <text class="inline-block">2 待打卡</text>
+                <text class="inline-block">1 待测试</text>
+            </view>
+        </view>
+    </view>
+    <view class="coachDetail-ul box-sizing">
+        <view class="coachDetail-li">
+            <view class="inline-block coachDetail-li-name">
+              <image style=" width: 27rpx;height:32rpx;" src="../../../../img/coachDetail-test.png" mode="scaleToFill"></image>
+              <text>答题卡</text>
+            </view>
+            <view class="inline-block coachDetail-li-num">
+                正确率 <text class="orange">30%</text> >
+            </view>
+        </view>
+        <view class="coachDetail-li" bindtap='goWrongTest'>
+            <view class="inline-block coachDetail-li-name">
+              <image style=" width: 30rpx;height:30rpx;" src="../../../../img/coachDetail-wrong.png" mode="scaleToFill"></image>
+              <text>错题集</text>
+            </view>
+            <view class="inline-block coachDetail-li-num">
+                <text class="orange">6</text> >
+            </view>
+        </view>
+    </view>
+    <view class="coach-model box-sizing">
+        <view class="coachDetail-zc-head">
+            <view class="inline-block no-look">未打卡</view>
+            2019-10-12 
+        </view>
+        <view>
+            <image src="../../../../img/coachDetail-zcbg.png" class="coachDetail-zc-left" mode="scaleToFill"></image>
+            <view class="coachDetail-zc-right inline-block">
+                <view class="coachDetail-zc-right-name">关于修订城镇土地使用税和房产税申报表单的公告</view>
+                <view class="coachDetail-zc-right-date">[ 国家税务总局公告2019年第32号 ]</view>
+                <view class="coachDetail-zc-right-class">
+                  <text class="inline-block">#城镇土地使用税</text>
+                  <text class="inline-block">#房地产</text>
+                  <text class="inline-block">#房地产</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,122 @@
+/* pages/mine/mineCoach/coachDetail/coachDetail.wxss */
+.coachDetail-head{
+  width: 100%;
+  height:257rpx;
+  position: relative
+}
+.coachDetail-head-bg,.coachDetail-head-msg{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.coachDetail-head-msg{
+  padding:43rpx 41rpx;
+  color:#fff;
+}
+.coachDetail-h-m-name{
+  font-size: 42rpx;
+  font-weight: 500;
+  margin-bottom: 17rpx;
+}
+.coachDetail-h-m-date{
+  font-size: 26rpx;
+  margin-bottom: 48rpx;
+}
+.coachDetail-h-m-need{
+  font-size: 28rpx;
+  text-align: right;
+}
+.coachDetail-h-m-need>text{
+  margin-left: 50rpx;
+}
+.coachDetail-h-m-need>text:nth-child(1){
+  border-right:1px solid #fff;
+  padding-right: 50rpx;
+}
+.coachDetail-ul{
+  width: 100%;
+  height:210rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding:0 31rpx;
+  margin-top: 32rpx;
+}
+.coachDetail-li{
+  display: flex;
+  justify-content: space-between;
+  height: 105rpx;
+  line-height: 105rpx;
+}
+.coachDetail-li:nth-child(1){
+  border-bottom:1px solid #eee;
+}
+.coachDetail-li-name{
+  font-size: 30rpx;
+  color:#333;
+}
+.coachDetail-li-name>image{
+  vertical-align: middle;
+  margin: 0 15rpx 5rpx 0;
+}
+.coachDetail-li-num{
+  font-size:28rpx;
+  color:#999;
+}
+.coachDetail-li-num>text{
+  margin: 0 13rpx;
+}
+.coach-model{
+  margin-top: 32rpx;
+  padding:45rpx 49rpx;
+}
+.coachDetail-zc-head{
+  font-size: 28rpx;
+  color:#666;
+  margin-bottom: 48rpx;
+}
+.no-look{
+  width:96rpx;
+  height:42rpx;
+  line-height: 42rpx;
+  background:rgba(240,104,67,1);
+  border-radius:6rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 22rpx;
+  margin-right: 13rpx;
+}
+.coachDetail-zc-left{
+  width: 93rpx;
+  height:93rpx;
+  vertical-align: top;
+  margin-right: 25rpx;
+}
+.coachDetail-zc-right{
+  vertical-align: top;
+  width: 80%;
+}
+.coachDetail-zc-right-name{
+  font-size: 32rpx;
+  color:#333;
+  font-weight:bold;
+  margin-bottom: 26rpx;
+}
+.coachDetail-zc-right-date{
+  font-size: 26rpx;
+  color:#999;
+  margin-bottom: 17rpx;
+  padding-bottom:33rpx;
+  border-bottom:1px solid #eee;
+}
+.coachDetail-zc-right-class>text{
+  font-size:24rpx;
+  color:#798091;
+  height:41rpx;
+  line-height: 41rpx;
+  padding:0 16rpx;
+  background:rgba(244,248,250,1);
+  border-radius:6rpx;
+  margin:0  17rpx 10rpx 0;
+}

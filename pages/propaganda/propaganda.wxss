@@ -1,0 +1,44 @@
+/* pages/propaganda/propaganda.wxss */
+.open-vip{
+  width:40%;
+  height:40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 1rem auto;
+  background: green;
+  color:#fff;
+}
+.shadow-body{
+  width: 100%;
+  height:40%;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: absolute;
+  bottom:0;
+  text-align: center
+}
+.radio{
+  display:block;
+  text-align: left;
+  padding-left: 20px;
+}
+.sure-breed{
+  width:40%;
+  height:40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 1rem auto;
+  background: green;
+  color:#fff;
+  margin-top: 30px;
+}
+.bum-btn{
+  width: 15px;
+  height:15px;
+  line-height: 15px;
+  text-align: center;
+  border: 1px solid #999;
+  border-radius: 3px;
+  margin: 0 5px;
+}

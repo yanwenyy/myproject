@@ -1,0 +1,7 @@
+/* pages/test/test.wxss */
+.test-list{
+  display: block
+}
+.active{
+  color:red;
+}

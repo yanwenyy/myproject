@@ -1,0 +1,16 @@
+<!--pages/circle/circle.wxml-->
+<canvas style="width:{{canvasWidth}}px;height:{{canvasWidth}}px;" canvas-id="circleBar">
+  <cover-view class="circle-bar-wrap" style="height:{{canvasWidth}}px;">
+    <cover-view class="font font-num">
+      <cover-view style="color:{{lineColor}};font-size:34rpx;vertical-align:bottom;display:inline-block;margin-bottom:-5rpx">{{value}}</cover-view>
+      <cover-view style="vertical-align:bottom;display:inline-block">/{{maxValue}}</cover-view>
+    </cover-view>
+    <cover-view class="font">
+      {{title}}
+    </cover-view>
+    <!-- <cover-view class="val" style="color: {{valueColor}}; margin-top:{{isMarginTop?'20':'0'}}rpx">
+      {{value}} {{suffix}}
+    </cover-view> -->
+  </cover-view>
+</canvas>
+<slot></slot>

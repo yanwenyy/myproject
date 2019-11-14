@@ -1,0 +1,13 @@
+<!--测试题pages/test/test.wxml-->
+<view>
+    <text>第1题（选择题)(1/4)</text>
+    <view class='quest_container' wx:for="{{quest}}" wx:key="id" wx:for-index="outterIndex" wx:if="{{showNum==outterIndex}}">
+      <text>{{item.question}}</text>
+      <view wx:for="{{item.answers}}" wx:key="content" bindtap="answerSelected" data-outidx='{{outterIndex}}' data-idx="{{index}}" data-value="{{item.content}}" class="item {{item.selected?'active':''}}">
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+    <button bindtap='preQues'>上一题</button>
+    <button bindtap='nextQues'>下一题</button>
+    <button wx:if="{{quest.length-1==showNum}}" bindtap='subResult'>提交</button>
+</view>

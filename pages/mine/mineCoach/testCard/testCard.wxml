@@ -1,0 +1,52 @@
+<!--答题卡pages/mine/mineCoach/testCard/testCard.wxml-->
+<view class="container">
+    <view class="testCard-head box-sizing">
+        <image class="testCard-head-bg" src="../../../../img/testCard-head.png" mode="scaleToFill"></image>
+        <view class="testCard-head-msg box-sizing">
+            <view class="testCard-head-msg-name">
+                <view class="inline-block">2019年9月政策</view>
+                <view class="inline-block testCard-go-repair">
+                  去补考<image src="../../../../img/testCard-go-bk.png"></image>
+                </view>
+            </view>
+            <view class="testCard-head-footer">
+                <view class="inline-block testCard-head-msg-num">
+                    <view class="inline-block">
+                        <view>问题</view>
+                        <view class="testCard-head-num-list">16</view>
+                    </view>
+                    <view class="inline-block">
+                        <view>正确</view>
+                        <view class="testCard-head-num-list">2</view>
+                    </view>
+                    <view class="inline-block">
+                        <view>错误</view>
+                        <view class="testCard-head-num-list">3</view>
+                    </view>
+                    <view class="inline-block">
+                        <view>未答</view>
+                        <view class="testCard-head-num-list">4</view>
+                    </view>
+                </view>
+                <view class="inline-block testCard-right-probability">
+                    <view class="orange">30%</view>
+                    <view>正确率</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="coach-model box-sizing">
+      <view class="testCard-list-name">
+        一、 关于修订城镇土地使用税和房产税申报表单的公告
+      </view>
+      <view class="testCard-list-num">
+        <view class="inline-block">
+          <view class="inline-block right">1</view>
+          <view class="inline-block right">2</view>
+          <view class="inline-block wrong">3</view>
+          <view class="inline-block">4</view>
+        </view>
+        <image src="../../../../img/testCard-more.png" mode="scaleToFill" class="testCard-list-num-btn"></image>
+      </view>
+    </view>
+</view>

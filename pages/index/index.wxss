@@ -6,16 +6,218 @@
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+  margin: 29rpx 27rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  margin: 36rpx 0 7rpx 0;
+  font-size:30rpx;
+  color:#333;
+  font-weight: bold;
 }
 
 .usermotto {
   margin-top: 200px;
+}
+.go-test{
+  width: 80px;
+  height:30px;
+  line-height: 30px;
+  text-align: center;
+  border:1px solid #eee;
+  background: #ddd;
+  margin: 30px auto;
+  font-size: 16px;
+}
+.index-swiper{
+  width: 100%;
+  height:244rpx;
+  box-sizing: border-box;
+  border-top-left-radius:20rpx;
+  border-top-right-radius:20rpx;
+}
+.index-swiper-img{
+  width: 100%;
+  height:100%;
+  border-top-left-radius:20rpx;
+  border-top-right-radius:20rpx;
+}
+.user-msg{
+  width: 100%;
+  height:152rpx;
+  background: #fff;
+  margin-bottom: 26rpx
+}
+.user-name-group{
+  vertical-align: top;
+}
+.coach-progress{
+  width: 295rpx;
+  height:8rpx;
+}
+.coach-group{
+  font-size: 24rpx;
+  color:#999;
+}
+.coach-group>progress{
+  font-size:26rpx;
+}
+.coach-num{
+  margin: 0 37rpx 0 25rpx;
+}
+.index-head{
+  font-size:38rpx;
+  font-weight:bold;
+  margin: 67rpx 0 31rpx 0;
+}
+.coach-model{
+  width: 100%;
+  height:auto;
+  background: #fff;
+  border-radius: 16rpx;
+}
+.index-head-two{
+  font-size:34rpx;
+  font-weight:bold;
+  padding:46rpx 0 0 40rpx;
+}
+.index-head-two-class{
+  background:rgba(245,106,50,0.48);
+  border-radius:17rpx;
+  margin-left:10rpx;
+  font-size:20rpx;
+  color:#fff;
+  text-align: center;
+  width: 90rpx;
+  height:34rpx;
+  line-height:34rpx;
+}
+.coaching-pie{
+  margin-top:44rpx;
+  text-align: center; 
+}
+.coaching-pie>view:nth-child(1){
+  margin-right:146rpx;
+}
+.go-coach{
+  height:103rpx;
+  line-height: 103rpx;
+  text-align: center;
+  font-size:32rpx;
+  border-top:1px solid #eee;
+}
+.go-coach>image{
+  width: 26rpx;
+  height:26rpx;
+  margin-left:9rpx;
+}
+.index-tab-model{
+  display: flex;
+  justify-content: space-between;
+  padding: 47rpx 39rpx;
+}
+.index-tab-group{
+  font-size: 26rpx;
+  text-align: center;
+}
+.index-tab-group>image{
+ margin-bottom: 24rpx
+}
+.assessment-dateEnd{
+  font-size:26rpx;
+  margin: 30rpx 39rpx;
+  color:#999;
+}
+.assessment-result{
+  width: 618rpx;
+  height:208rpx;
+  position: relative;
+  margin: 0 auto;
+}
+.assessment-result>image,.assessment-result-msg{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+}
+.assessment-result-msg{
+  padding:35rpx 36rpx;
+}
+.accuracy-rate{
+  width:136rpx;
+  height:136rpx;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+  font-size: 24rpx;
+  margin-right: 33rpx;
+}
+.accuracy-rate>view:nth-child(1){
+  font-size:34rpx;
+  margin-top: 33rpx;
+}
+.accuracy-msg{
+  color:#fff;
+  font-size: 28rpx;
+}
+.accuracy-msg-name{
+  display: flex;
+  justify-content: space-between;
+}
+.accuracy-msg>progress{
+  width: 377rpx;
+  height:8rpx;
+  margin-top:30rpx;
+}
+.assessment-result-footer{
+  width: 100%;
+  height:109rpx;
+  line-height: 109rpx;
+  padding:0 54rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size:25.8rpx;
+  color:#aaa;
+}
+.assessment-ul{
+  margin-top: 42rpx;
+}
+.assessment-li{
+  width: 100%;
+  height:137rpx;
+  line-height: 137rpx;
+  font-size:28rpx;
+  color:#333;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 21rpx;
+}
+.assessment-li>image{
+  width: 37rpx;
+  height:38rpx;
+  margin:0 28rpx 5rpx 43rpx;
+  vertical-align: middle;
+}
+.assessment-li-btn{
+  width: 141rpx;
+  height:56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border: 1px solid #F56A32;
+  border-radius: 28rpx;
+  float:right;
+  margin: 41rpx 32rpx;
+}
+.index-tab-group{
+  position: relative;
+}
+.index-tab-group>button{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  opacity: 0;
 }

@@ -1,0 +1,6 @@
+<!--我的页面pages/mine/mine.wxml-->
+<view>
+  <text>我的</text>
+  <progress percent="20" show-info />
+  <button bindtap='showimg'>截图</button>
+</view>

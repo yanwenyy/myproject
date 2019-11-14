@@ -1,0 +1,20 @@
+<!--评测页面pages/evaluating/evaluating.wxml-->
+<view>
+  <view>
+      <text>{{countDownList.name}}</text>
+        剩余
+        <text class=''>{{countDownList.change_time.day}}</text>天
+        <text class=''>{{countDownList.change_time.hou}}</text>:
+        <text class=''>{{countDownList.change_time.min}}</text>:
+        <text class=''>{{countDownList.change_time.sec}}</text>
+  </view>
+  <view>
+      <text>{{nowList.name}}</text>
+        剩余
+        <text class=''>{{nowList.change_time.day}}</text>天
+        <text class=''>{{nowList.change_time.hou}}</text>:
+        <text class=''>{{nowList.change_time.min}}</text>:
+        <text class=''>{{nowList.change_time.sec}}</text>
+  </view>
+</view>
+

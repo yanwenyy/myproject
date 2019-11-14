@@ -1,0 +1,32 @@
+<!--宣传页面pages/propaganda/propaganda.wxml-->
+<view>
+    <text>H5页面 产品介绍/宣传</text>
+    <button class="open-vip" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即开通</button>
+    <view class="shadow" wx:if="{{shadow}}">
+      <view class="shadow-body">
+          <view wx:if="{{kt}}">
+              <text>请选择您要开通的类型</text>
+              <view>
+                  <radio-group class="radio-group" bindchange="radioChange">
+                        <radio class="radio" wx:for-items="{{breed}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                            <text>{{item.value}}</text>
+                        </radio>
+                    </radio-group>
+              </view>
+              <button class="sure-breed" bindtap='ktBreed'>确定</button>
+          </view>
+         <view wx:if="{{kt_num}}">
+              <text>请选择您要开通的人数</text>
+              <view>
+                 <view class="inline-block">365顾问宝——公司版</view>
+                 <view class="inline-block">
+                      <view class="bum-btn inline-block" bindtap='reduce'>-</view>
+                      <text>{{company_num}}</text>
+                      <view class="bum-btn inline-block" bindtap='plus'>+</view>
+                 </view>
+              </view>
+              <button class="sure-breed" bindtap='companyPay'>立即支付</button>
+          </view>
+        </view>
+    </view>
+</view>

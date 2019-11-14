@@ -1,0 +1,3 @@
+<!--填写信息pages/propaganda/editMsg/editMsg.wxml-->
+<text>填写信息</text>
+<navigator url="../../index/index?openid=yes" open-type="reLaunch">确定提交</navigator>
