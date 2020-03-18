@@ -1,0 +1,85 @@
+/* pages/microConsultation/ques/ques.wxss */
+@import "../../mine/mine/mineMsg/mineMsg.wxss";
+.ques-body {
+  padding: 50rpx 37rpx;
+}
+
+.ques-textarea {
+  width: 100%;
+  border: none;
+  height: 251rpx;
+  font-size: 30rpx;
+  line-height: 45rpx;
+}
+
+.ques-img-title {
+  font-size: 28rpx;
+  color: #999;
+  margin: 29rpx 0;
+}
+
+.ques-img-show {
+  width: 164rpx;
+  height: 164rpx;
+  margin-right: 10rpx;
+}
+
+.ques-hy {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 57rpx;
+}
+
+.ques-hy-msg {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.ques-hy-label {
+  width: 28rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-bottom: 5rpx;
+}
+
+.ques-hy-go {
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin-bottom: 5rpx;
+}
+
+.ques-img-show-view {
+  position: relative;
+}
+
+.del-img {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #fff;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 5rpx;
+}
+.sub-ques{
+  width: 100%;
+  position: absolute;
+  bottom:40rpx;
+  left:0;
+  padding:0 43rpx;
+}
+.sub-ques>button{
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  color:#fff;
+  font-size: 32rpx;
+  background: #F56A32;
+}

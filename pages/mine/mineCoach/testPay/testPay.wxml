@@ -1,0 +1,16 @@
+<!--测试补考pages/mine/mineCoach/testPay/testPay.wxml-->
+<view class="testPay-body box-sizing">
+    <view class="testPay-head">
+      <image class="testPay-head-img" src="../../../../img/test-pay.png" mode="scaleToFill"></image>
+      <view class="testPay-head-msg box-sizing">
+          <view> <text>共</text>¥{{goods.price}} </view>
+      </view>
+    </view>
+    <view class="testPay-month">
+      <view class="testPay-month-title">补考月份</view>
+      <view>{{date}}</view>
+    </view>
+    <view class="testPay-btn box-sizing">
+        <button class="box-sizing" bindtap="payTest">支付 <text>（¥{{goods.price}}）</text></button>
+    </view>
+</view>

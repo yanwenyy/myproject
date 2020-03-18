@@ -1,0 +1,87 @@
+<!--提问详情pages/microConsultation/quesDetail/quesDetail.wxml-->
+<view class="quesDetail-body">
+  <view class="quesDetail-ques box-sizing">
+    <view class="quesDetail-ques-head">
+      <image class="quesDetail-ques-head-img" src="{{msg.question.thirdUserHeadImg}}" mode="scaleToFill"></image>
+      <view class="inline-block quesDetail-ques-head-msg">
+        <view class="quesDetail-ques-head-name">{{msg.question.thirdUserName}}</view>
+        <view class="quesDetail-ques-head-date">{{msg.question.date}}</view>
+      </view>
+    </view>
+    <view class="quesDetail-ques-msg">
+      {{msg.question.content}}
+    </view>
+    <view wx:if="{{msg.question.images!=''}}">
+      <image wx:for="{{msg.question.images}}" wx:key="index" src="{{queImg+item}}" data-src="{{queImg+item}}" mode="scaleToFill" class="quesDetail-head-img-show" bindtap="imgLook"></image>
+    </view>
+    <view class="quesDetail-ques-footer">
+      <image class="quesDetail-ques-footer-img" src="../../../img/ques-detail-ques-label.png" mode="scaleToFill"></image>
+      {{msg.question.area||''}} {{msg.question.quTrade}}
+    </view>
+  </view>
+  <view class="quesDetail-answer box-sizing" wx:if="{{msg.answerUsers!=''}}">
+    <view class="quesDetail-answer-title box-sizing">回答</view>
+    <view class="quesDetail-answer-list box-sizing"  wx:for="{{msg.answerUsers}}" wx:if="{{item.status!=6}}">
+      <view class="quesDetail-ques-head">
+        <image class="quesDetail-ques-head-img" src="../../../img/user.png" mode="scaleToFill"></image>
+        <view class="inline-block quesDetail-ques-head-msg">
+          <view class="quesDetail-ques-head-name">{{item.userName}}</view>
+          <view class="quesDetail-ques-head-date"><image class="expert-img" src="../../../img/expert-img.png" mode="scaleToFill"></image>{{item.counselorDuty}}</view>
+        </view>
+        <view class="answer-grade-btn">
+          <image wx:if="{{item.status==2||item.status==7||item.checkStatus==2}}" class="answer-img" mode="scaleToFill" src="../../../img/answer-best.png"></image>
+          <!-- <image wx:if="{{item.status==6}}" class="answer-img" mode="scaleToFill" src="../../../img/answer-wrong.png"></image> -->
+          <text wx:if="{{item.status==1&&msg.question.status==2&&userInfo.uuid==uuid}}" class="inline-block" bindtap="cn" data-id="{{item.uuid}}">采纳</text>
+        </view>
+      </view>
+      <view class="quesDetail-ques-msg">
+        {{item.content}}
+      </view>
+      <view class="quesDetail-ques-footer">
+        {{item.time}}
+      </view>
+      <view class="answer-pj box-sizing" wx:if="{{(item.status==2||item.status==7||item.checkStatus==2)&&userInfo.uuid==uuid}}">
+        <view class="answer-pj-title">
+          <view class="inline-block orange">评价得分: </view>
+          <view class="assessmentResult-list-star inline-block">
+            <image src="{{item.score>0? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="1" mode="scaleToFill"></image>
+            <image src="{{item.score>1? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="2" mode="scaleToFill"></image>
+            <image src="{{item.score>2? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="3" mode="scaleToFill"></image>
+            <image src="{{item.score>3? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="4" mode="scaleToFill"></image>
+            <image src="{{item.score>4? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="5" mode="scaleToFill"></image>
+          </view>
+          <text class="orange" style="float:right" wx:if="{{item.score==0}}" bindtap="goPj" data-id="{{item.uuid}}" data-name="{{item.userName}}" data-dj="{{item.counselorDuty}}">去评价</text>
+        </view>
+        <view class="answer-pj-msg">
+          {{item.appraisal||'暂无评价'}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="quesDetail-answer box-sizing" wx:for="{{msg.answerUsers}}" wx:if="{{item.status==6}}">
+    <view class="quesDetail-answer-title box-sizing">答案纠错</view>
+     <view class="quesDetail-answer-list box-sizing" >
+      <view class="quesDetail-ques-head">
+        <image class="quesDetail-ques-head-img" src="../../../img/user.png" mode="scaleToFill"></image>
+        <view class="inline-block quesDetail-ques-head-msg">
+          <view class="quesDetail-ques-head-name">{{item.userName}}</view>
+          <view class="quesDetail-ques-head-date"><image class="expert-img" src="../../../img/expert-img.png" mode="scaleToFill"></image>{{item.counselorDuty}}</view>
+        </view>
+        <view class="answer-grade-btn">
+          <image class="answer-img" mode="scaleToFill" src="../../../img/answer-wrong.png"></image>
+        </view>
+      </view>
+      <view class="quesDetail-ques-msg">
+        {{item.content}}
+      </view>
+      <view class="quesDetail-ques-footer">
+        {{item.time}}
+      </view>
+    </view>
+  </view>
+  <view class="no-msg"  wx:if="{{msg.changerAnswer==''&& msg.answerUsers==''}}">
+    <image src="../../../img/no-hf.png" mode="scaleToFill"></image>
+    <view>请耐心等待 </view>
+    <view>咨询师24h 内给您回复</view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+/* pages/share/assessmentZc/assessmentZc.wxss */
+@import '../../mine/mineCoach/assessmentResult/assessmentResult.wxss';
+@import '../../mine/minePresentation/selfPresentationDetail/selfPresentationDetail';
+.coachDetail-zc-right{
+  width: 70%;
+}

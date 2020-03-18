@@ -1,0 +1,87 @@
+/* pages/share/acceptShareMsg/acceptShareMsg.wxss */
+.user-img{
+  width: 53rpx;
+  height:53rpx;
+  background: #eee;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 17rpx;
+}
+.acceptShareMsg-body{
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  position: relative;
+}
+.scope-body{
+  color:#fff;
+  padding:40% 35rpx;
+}
+.scope-msg{
+  font-size:40rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.acceptShareMsg-bg,.acceptShareMsg-msg,.scope-body{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.acceptShareMsg-msg{
+  padding:0 36rpx;
+  font-size:30rpx;
+}
+.acceptShareMsg-model{
+  width: 100%;
+  padding:42rpx 31rpx;
+  margin-top: 273rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.acceptShareMsg-model-head{
+  width: 100%;
+  height:305rpx;
+  position: relative;
+}
+.acceptShareMsg-model-head-bg,.acceptShareMsg-model-head-msg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.acceptShareMsg-model-head-msg{
+  padding:61rpx 65rpx;
+  color:#fff;
+}
+.acceptShareMsg-model-head-msg-title{
+  font-size: 44rpx;
+  font-weight: bold;
+}
+.acceptShareMsg-model-head-msg-footer{
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom:30rpx;
+}
+.acceptShareMsg-model-head-msg-footer-name{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.acceptShareMsg-list{
+  margin-top: 40rpx;
+}
+.acceptShareMsg-list>view{
+  margin-bottom: 10rpx;
+}
+.jionTeamBtn{
+  background: #fff;
+  color:#F56A32;
+  font-size:32rpx;
+  margin-top: 43rpx;
+  height:93rpx;
+  line-height: 93rpx;
+}

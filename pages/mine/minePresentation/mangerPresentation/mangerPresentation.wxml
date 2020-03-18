@@ -1,0 +1,32 @@
+<!--我的报告管理员版pages/mine/minePresentation/mangerPresentation/mangerPresentation.wxml-->
+<view class="container">
+<swiper class="index-swiper selfPresentation-banner" autoplay="true" interval="2000" indicator-dots="{{background.length>1}}" circular="true" indicator-active-color="#fff">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+        <image bindtap="goRule" class="index-swiper-img" src="{{item.imgUrl?'http://'+item.imgUrl:''}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- <image src="" mode="scaleToFill" class="selfPresentation-banner"></image> -->
+  <view class="selfPresentation-body box-sizing" wx:if="{{list!=''&&list!=null}}">
+    <view class="selfPresentation-list"  wx:for="{{list}}">
+      <view class="inline-block selfPresentation-list-dot"></view>
+      <view class="inline-block selfPresentation-list-msg">
+        <view class="selfPresentation-list-date">
+          <text>{{item.policyDate}} 第{{list.length-index}}期  </text>
+          <view bindtap="goMothSum" class="inline-block selfPresentation-list-btn" data-date="{{item.policyDate}}" data-id="{{item.id}}" data-num="{{list.length-index}}">
+           查看
+            <image src="../../../../img/selfPresentation-go.png" mode="scaleToFill"></image>
+          </view>
+        </view>
+        <view class="selfPresentation-list-title">
+          <view>财税政策变更评估报告</view>
+          <view class="mangerPresentation-user-img">
+            <image wx:for="{{item.evluationUsers}}" wx:key="*this" wx:if="{{index<6}}" src="{{item.headImg}}" mode="scaleToFill" class="inline-block"></image>
+            <text wx:if="{{item.evluationUsers.length>5}}">...</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

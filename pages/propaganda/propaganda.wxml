@@ -1,32 +1,242 @@
 <!--宣传页面pages/propaganda/propaganda.wxml-->
-<view>
-    <text>H5页面 产品介绍/宣传</text>
-    <button class="open-vip" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即开通</button>
-    <view class="shadow" wx:if="{{shadow}}">
-      <view class="shadow-body">
-          <view wx:if="{{kt}}">
-              <text>请选择您要开通的类型</text>
-              <view>
-                  <radio-group class="radio-group" bindchange="radioChange">
-                        <radio class="radio" wx:for-items="{{breed}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
-                            <text>{{item.value}}</text>
-                        </radio>
-                    </radio-group>
-              </view>
-              <button class="sure-breed" bindtap='ktBreed'>确定</button>
+<view class="propaganda-body">
+  <view class="propaganda-head box-sizing">
+    <view>
+      <image src="{{userInfo.headImg}}" class="propaganda-head-img" mode="scaleToFill"></image>
+      <view class="inline-block propaganda-head-name">
+        <view>{{userInfo.nickname}}</view>
+        <text>{{userInfo.ifMember==1?'企业会员':'暂未开通企业会员'}}</text>
+      </view>
+    </view>
+    <view class="pay-head">
+      <image class="pay-bg" src="../../img/pay-bg.png" mode="scaleToFill"></image>
+      <view class="pay-msg box-sizing">
+        <view class="pay-msg-name">省税一哥·企业版会员</view>
+        <view class="pay-msg-time">
+          企业贴身财务顾问
+        </view>
+        <view class="pay-msg-money">
+          <view class="hygz inline-block" bindtap="openHygz">
+            <image src="../../img/pro-hygz.png" mode="scaleToFill"></image> 会员规则
           </view>
-         <view wx:if="{{kt_num}}">
-              <text>请选择您要开通的人数</text>
-              <view>
-                 <view class="inline-block">365顾问宝——公司版</view>
-                 <view class="inline-block">
-                      <view class="bum-btn inline-block" bindtap='reduce'>-</view>
-                      <text>{{company_num}}</text>
-                      <view class="bum-btn inline-block" bindtap='plus'>+</view>
-                 </view>
-              </view>
-              <button class="sure-breed" bindtap='companyPay'>立即支付</button>
+          <!-- <text>¥4800.00 /年</text> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="propaganda-hyfl box-sizing">
+    <view class="propaganda-hyfl-title">
+      <view class="inline-block">会员福利</view>
+      <view class="inline-block qbqy" bindtap="goHyqy">
+        全部权益
+        <image src="../../img/set-go.png" mode="scaleToFill"></image>
+      </view>
+    </view>
+    <view class="propaganda-hyfl-img">
+      <image wx:for="{{5}}" wx:if="{{item!=2&&item!=3}}" class="propaganda-hyfl-img-list" mode="scaleToFill" src="{{'../../img/pro-hyfl'+(index+1)+'.png'}}"></image>
+    </view>
+  </view>
+  <view class="propaganda-cpsm">
+    <view class="propaganda-cpsm-head">
+      <image src="../../img/pro-cpsm.png" mode="scaleToFill"></image>
+    </view>
+    <view class="propaganda-cpsm-title">产品主旨</view>
+    <view class="propaganda-cpzz box-sizing">
+      <view> 我们旨在为企业打造一款，可有效解决因老板与财务人员脱节，而带来的粗放管理问题。</view>
+      <view> 平台通过“学、测、报”三大功能，及按月辅导“一政一测、一政一报”的方式，并结合业内权威签约专家定向输出的财税政策重点逐条解读，及指导意见。</view>
+      <view>实现督促财务人员实时学习掌握税收政策，并且测评验收新政理解程度，针对政策变更对企业的影响，提交政策分析报告、提出贯彻执行方案。辅导财税人员成为运用税法的高手，避免因掌握政策变动不及时、政策理解不到位，给企业老板以及财务人员自身带来的涉税风险。从而实现控险、安全节税的双重目的。</view>
+      <view>省税一哥还打通了企业跟外部税务专家实时咨询的通道，让财税更简单！</view>
+      <view>是老板掌握企业财税动态的完美工具;</view>
+      <view>是员工提升自我，降低涉税职业风险的执业工具!</view>
+    </view>
+    <view class="propaganda-cpsm-title">使用角色</view>
+    <view class="propaganda-syjs">
+      <image src="../../img/pro-role1.png" mode="scaleToFill"></image>
+      <image src="../../img/pro-role2.png" mode="scaleToFill"></image>
+    </view>
+  </view>
+  <view class="propaganda-wbf">
+    <view class="propaganda-cpsm-title">五步法</view>
+    <view class="propaganda-wbf-title">“五步法”让企业成为运用税法的高手</view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img" src="../../img/pro-wbf1.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>政策发布</view>
+        <text>快速传递最新财税政策</text>
+      </view>
+    </view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img" src="../../img/pro-wbf2.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>逐条解读</view>
+        <text>由国内权威专家对政策进行逐条、延伸、对比解读</text>
+      </view>
+    </view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img" src="../../img/pro-wbf3.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>掌握测评</view>
+        <text>通过测评，复合对新政的理解度</text>
+      </view>
+    </view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img" src="../../img/pro-wbf4.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>评估报告</view>
+        <text>财务人员向企业负责人输出《政策变更报评估报告》，让企业时刻掌握政策影响</text>
+      </view>
+    </view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img" src="../../img/pro-wbf5.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>贯彻落实</view>
+        <text>提出公司内部的贯彻执行方案</text>
+      </view>
+    </view>
+  </view>
+  <view class="propaganda-wbf">
+    <view class="propaganda-cpsm-title">产品介绍</view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img cpjs-img-new" src="../../img/pro-cpjs1.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>12期新政辅导</view>
+        <text>以每自然月为周期，为您提供12个月的政策辅导</text>
+      </view>
+    </view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img cpjs-img-new" src="../../img/pro-cpjs2.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>政策解读</view>
+        <text>政策原文、逐条解读、延伸解读、对比解读、官方解读</text>
+      </view>
+    </view>
+    <view class="propaganda-cpjs-img">
+      <image src="../../img/pro-cpjs3.png" mode="widthFix"></image>
+    </view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img cpjs-img-new" src="../../img/pro-cpjs4.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>政策测评</view>
+        <text>一政一测，输出月度成绩、年度成绩；成绩不理想时可进行补考</text>
+      </view>
+    </view>
+    <view class="propaganda-cpjs-img">
+      <image src="../../img/pro-cpjs5.png" mode="widthFix"></image>
+    </view>
+    <view class="propaganda-wbf-li">
+      <image class="propaganda-wbf-li-img cpjs-img-new" src="../../img/pro-cpjs6.png" mode="scaleToFill"></image>
+      <view class="propaganda-wbf-li-msg inline-block">
+        <view>政策评估</view>
+        <text>员工层汇报--管理者查阅</text>
+      </view>
+    </view>
+    <view class="propaganda-cpjs-img" style="margin-bottom:100rpx">
+      <image src="../../img/pro-cpjs7.png" mode="widthFix"></image>
+    </view>
+    <view class="open-vip-view">
+      <button wx:if="{{sq_btn}}" class="open-vip" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        授权登录
+      </button>
+      <button wx:if="{{kt_btn}}" class="open-vip" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即开通</button>
+      <button wx:if="{{cckt_btn}}" class="open-vip" bindtap="commenKt">立即开通</button>
+    </view>
+  </view>
+  <view class="shadow" wx:if="{{productClass}}">
+    <view class="shadow-body">
+      <view style="height:100%">
+        <view class="propaganda-shadow-title inline-block productClassTitle">
+          请选择商品
+          <image src="../../img/shadow-close.png" class="productClassTitleClose inline-block" bindtap="closeProduct"></image>
+        </view>
+        <view class="box-sizing productList">
+          <radio-group class="radio-group" bindchange="productChange">
+            <radio color="#F56A32" class="radio product-radio box-sizing" wx:for-items="{{product}}" wx:key="goodsId" value="{{item.goodsId}}" checked="{{item.checked}}">
+              <view class="product-name">{{item.goodsName}}</view>
+              <view class="orange">¥{{item.price}}/年</view>
+            </radio>
+          </radio-group>
+        </view>
+        <button class="sure-breed" bindtap='ktprodut'>确定</button>
+      </view>
+    </view>
+  </view>
+  <view class="shadow" wx:if="{{shadow}}">
+    <view class="shadow-body">
+      <view wx:if="{{kt}}">
+        <text class="propaganda-shadow-title inline-block">请选择您要开通的类型</text>
+        <view class="propaganda-shadow-body box-sizing">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <radio color="#F56A32" class="radio" wx:for-items="{{breed}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+              <text>{{item.value}}</text>
+            </radio>
+          </radio-group>
+        </view>
+        <button class="sure-breed" bindtap='ktBreed'>确定</button>
+      </view>
+      <view wx:if="{{kt_num}}">
+        <text class="propaganda-shadow-title inline-block">请选择您要开通的人数</text>
+        <view class="propaganda-shadow-body box-sizing">
+          <view class="inline-block">省税一哥——公司版</view>
+          <view class="">
+            <view class="bum-btn inline-block" bindtap='reduce'>-</view>
+            <text>{{company_num}}</text>
+            <view class="bum-btn inline-block" bindtap='plus'>+</view>
           </view>
         </view>
+        <button class="sure-breed" bindtap='companyPay'>立即支付</button>
+      </view>
+      <view wx:if="{{kt_company}}">
+        <text class="propaganda-shadow-title inline-block">请填写企业名称</text>
+        <view class="propaganda-shadow-body box-sizing">
+          <input class="companyinput" placeholder="请填写公司名称" bindinput="companyNameInput" maxlength="20"></input>
+        </view>
+        <button class="sure-breed" bindtap='subCompanyName'>确定</button>
+      </view>
     </view>
+  </view>
+  <view class="shadow" wx:if="{{hygz}}">
+    <view class="hygz-model">
+      <image bindtap="closeHygz" src="../../img/hygz-model-close.png" mode="scaleToFill" class="hygz-model-close"></image>
+      <view class="hygz-model-msg box-sizing">
+        <view class="hygz-model-msg-title">会员规则</view>
+        <view class="hygz-model-msg-title2">• 关于有效期</view>
+        <view>
+          2019年1月31日至2020年1月15日仅展示当前年度的有效截止日期，若您进行了续费，则可在购买记录中查看。 </view>
+        <view class="hygz-model-msg-title2">• 关于辅导周期</view>
+        <view>
+          开通月份——次年上月例如：2019年1月31日开通，则有辅导周期为2019年1月至2019年12月。
+        </view>
+        <view class="hygz-model-msg-title2">• 关于账号</view>
+        <view>企业下可关联1个管理层账号；2个员工层账号。若您企业员工较多，可购买多个企业会员。</view>
+        <view class="hygz-model-msg-title2">• 关于退款</view>
+        <view>在线产品的特殊性，购买后不可退款。</view>
+        <view class="hygz-model-msg-footer">以上解释权归我司所有</view>
+      </view>
+    </view>
+  </view>
+  <view class="shadow" wx:if="{{shadowShare}}">
+    <view wx:if="{{!canvas}}" class="shadow-body2 coach-model box-sizing">
+      <view class="shadow-title">
+        分享邀请同事
+        <image class="close-shadow" mode="scaleToFill" src="../../img/shadow-close.png" bindtap="closeShadow"></image>
+      </view>
+      <view class="shadow-msg">
+        <view class="inline-block shadow-msg-model">
+          <image class="shadow-msg-model-img" src="../../img/share-zf.png" mode="scaleToFill"></image>
+          <button open-type="share" class="shadow-msg-model-btn"></button>
+        </view>
+        <view class="inline-block shadow-msg-model">
+          <image class="shadow-msg-model-img" src="../../img/share-tp.png" mode="scaleToFill"></image>
+          <button class="shadow-msg-model-btn" bindtap='share'></button>
+        </view>
+      </view>
+    </view>
+    <view class="canvas-bg box-sizing" style="margin-top:{{margin}}" bindtap="closeCanvas">
+      <canvas canvas-id="shareImg" class="canvas"></canvas>
+      <button class="save-canvas" catchtap='save'>保存分享图</button>
+    </view>
+  </view>
+  <view class="pro-share" bindtap="goShare">
+    <image src="../../img/pro-share.png"></image>
+  </view>
 </view>

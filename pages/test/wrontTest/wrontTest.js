@@ -1,5 +1,6 @@
 // pages/test/test.js
-const query = wx.createSelectorQuery()
+const query = wx.createSelectorQuery();
+const app=getApp();
 Page({
 
   /**
@@ -7,55 +8,77 @@ Page({
    */
   data: {
     quest: [{
-      id: 1,
-      type: 1, //类型，1.单选，2.多选
-      question: "1.你有女朋友吗？(单选)",
-      answers: [{
-        content: 'A.有',sel:true
+        id: 1,
+        type: 1, //类型，1.单选，2.多选
+        question: "1.你有女朋友吗？(单选)",
+        answers: [{
+          content: 'A.有',sel:true
+        }, {
+            content: 'B.没有', sel:false
+        }],
+        right:'A',
       }, {
-          content: 'B.没有', sel:false
-      }],
-      right:'A',
-    }, {
-      id: 2,
-      type: 1,
-      question: "2.目前薪资在哪个范围？(单选)",
-      answers: [{
-        content: 'A.3-6k'
+        id: 2,
+        type: 1,
+        question: "2.目前薪资在哪个范围？(单选)",
+        answers: [{
+          content: 'A.3-6k'
+        }, {
+            content: 'B.6-8k', sel: true
+        }, {
+            content: 'C.8-10k', sel: false
+        }, {
+          content: 'D.10k以上'
+        }],
+        right: 'B',
       }, {
-          content: 'B.6-8k', sel: true
-      }, {
-          content: 'C.8-10k', sel: false
-      }, {
-        content: 'D.10k以上'
-      }],
-      right: 'B',
-    }, {
-      id: 3,
-      type: 2,
-      question: "3.你喜欢哪一种编程语言？(多选)",
-      answers: [{
-        content: 'A.Java'
-      }, {
-          content: 'B.C语言', sel: false
-      }, {
-        content: 'C.PHP'
-      }, {
-        content: 'D.Python'
-      }, {
-          content: 'E.JavaScript', sel: true
-      }, {
-        content: 'F.其他'
-      }],
-      right: 'E',
+        id: 3,
+        type: 2,
+        question: "3.你喜欢哪一种编程语言？(多选)",
+        answers: [{
+          content: 'A.Java'
+        }, {
+            content: 'B.C语言', sel: false
+        }, {
+          content: 'C.PHP'
+        }, {
+          content: 'D.Python'
+        }, {
+            content: 'E.JavaScript', sel: true
+        }, {
+          content: 'F.其他'
+        }],
+        right: 'E',
     }],
-    showNum: 1
+    quest_list:[],
+    showNum: 1,
+    id:''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    var that=this;
+    console.log(options)
+    this.setData({
+      id:options.id,
+      againExam: options.againExam,
+      date:options.date
+    })
+    app.ajax("/applet/user/error/answer/qu",{
+      id: options.id
+    },function(res){
+      var datas=res.data.data,i,j;
+      for (i in datas){
+        var val = datas[i].answers;
+        for (j in val){
+          val[j].code=app.code(j)
+        }
+      }
+      that.setData({
+        quest_list: datas
+      });
+    })
   },
 
   /**
@@ -106,6 +129,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+
   //选择
   answerSelected(e) {
     // let outidx = e.currentTarget.dataset.outidx;
@@ -139,6 +163,7 @@ Page({
     //   question.result = result;
     // }
   },
+
   //上一题
   preQues: function () {
     if (this.data.showNum > 1) {
@@ -147,22 +172,26 @@ Page({
       })
     }
   },
+
   //下一题
   nextQues: function () {
-    var total = this.data.quest.length;
+    var total = this.data.quest_list.length;
+    console.log(total)
+    console.log(this.data.showNum)
     if (this.data.showNum < total) {
       this.setData({
         showNum: this.data.showNum + 1
       })
     }
   },
+
   //提交答案
   subResult: function () {
     var i = 0,
-      len = this.data.quest.length,
+      len = this.data.quest_list.length,
       result = [];
     for (; i < len; i++) {
-      var change_v = this.data.quest[i];
+      var change_v = this.data.quest_list[i];
       if (change_v.result) {
         //result[change_v.id] = change_v.result;
         var val = {
@@ -190,6 +219,32 @@ Page({
       icon: 'success',
       duration: 2000
     });
-    wx.clearStorage("test_fail")
+    wx.removeStorage("test_fail")
+  },
+
+  //去补考
+  goResitTest: function (e) {
+    var that=this;
+    app.ajax("/applet/makeup/policy/qu", {
+      "id": this.data.id
+    }, function (res) {
+      if (res.data.code == 10) {
+        // wx.showToast({
+        //   title: res.data.msg,
+        //   icon: 'none',
+        //   duration: 2000
+        // });
+        wx.navigateTo({
+          url: '../../mine/mineCoach/testPay/testPay?id=' + that.data.id + "&date=" + that.data.date,
+        })
+      } else {
+        wx.navigateTo({
+          url: '../../mine/mineCoach/resitTestList/resitTestList?id=' + that.data.id,
+        })
+      }
+    })
+    // wx.navigateTo({
+    //   url: './resitTestList/resitTestList?id=' + e.currentTarget.dataset.id,
+    // })
   }
 })

@@ -41,7 +41,7 @@ Component({
     //最大值 默认100
     maxValue: {
       type: Number,
-      value: 5
+      value: 100
     },
     //最小值 默认0
     minValue: {
@@ -52,6 +52,11 @@ Component({
     suffix: {
       type: null,
       value: "%"
+    },
+    //百分比
+    percent: {
+      type: String,
+      value: ''
     },
     //从什么角度开始 0~360之间 （12点方向为0,18点方向为180,0点方向为360）
     startDegree: {

@@ -1,0 +1,34 @@
+/* pages/mine/minePresentation/mangerPresentationSum/mangerPresentationSum.wxss */
+@import "../selfPresentationDetail/selfPresentationDetail.wxss";
+.selfPresentationDetail-notice{
+  font-size: 32rpx;
+  margin-bottom: 33rpx;
+}
+.mangerPresentationSum-list{
+  width:100%;
+  min-height: 169rpx;
+  height: auto;
+  padding:36rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 21rpx;
+}
+.mangerPresentationSum-list-img{
+  width: 98rpx;
+  height:98rpx;
+  background: #eee;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right:27rpx;
+}
+.mangerPresentationSum-msg{
+  vertical-align: middle;
+  font-size:28rpx;
+  color:#999;
+}
+.mangerPresentationSum-list-name{
+  color:#333;
+  font-size:34rpx;
+  margin-bottom: 12rpx;
+  font-weight: bold;
+}

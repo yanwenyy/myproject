@@ -1,0 +1,118 @@
+/* pages/mine/company/teamManage/teamManage.wxss */
+@import "../../../propaganda/pay/pay.wxss";
+@import "../../../share/inviteStaff/inviteStaff.wxss";
+.pay-msg-money{
+  display: flex;
+  justify-content: space-between
+}
+.teamManage-body{
+  padding:24rpx 23rpx;
+}
+.teamManage-ul-title{
+  font-size:34rpx;
+  font-weight: bold;
+  margin: 47rpx 0 43rpx 0;
+}
+.teamManage-li{
+  padding:45rpx 40rpx;
+  box-shadow:0px 0px 20rpx 0px rgba(221, 221, 221, 0.35);
+  border-radius:16rpx;
+  margin-bottom: 26rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.teamManage-li-user{
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  vertical-align: middle;
+}
+.teamManage-li-img{
+  width: 100%;
+  height:100%;
+  vertical-align: middle;
+  background: #eee;
+  border-radius: 50%;
+}
+.teamManage-li-user-mine{
+  width:49rpx;
+  height:28rpx;
+  background:rgba(245,106,50,1);
+  border-radius:14rpx;
+  color:#fff;
+  font-size:20rpx;
+  text-align: center;
+  line-height: 28rpx;
+  position: absolute;
+  bottom:-10rpx;
+  left: 28rpx;
+}
+.teamManage-li-msg{
+  width: 70%;
+  font-size: 28rpx;
+  color:#999;
+}
+.teamManage-li-msg-name{
+  font-size: 34rpx;
+  color:#333;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+.teamManage-li-msg-position{
+  padding:0 21rpx;
+  height:38rpx;
+  line-height: 38rpx;
+  text-align: center;
+  color:#F56A32;
+  font-size: 22rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(245,106,50,0.38);
+  border-radius:19rpx;
+  margin-left: 13rpx;
+}
+.teamManage-li-dot{
+  width:4%;
+  text-align: center;
+  margin-top:27rpx;
+}
+.teamManage-li-dot>view{
+  width:9rpx;
+  height:9rpx;
+  background:rgba(220,220,220,1);
+  border-radius:50%;
+  margin-bottom: 11rpx;
+}
+.teamManage-li-share{
+  width: 50%;
+  font-size:34rpx;
+  color:#999;
+  vertical-align: middle;
+  margin-top: 22rpx;
+}
+.teamManage-li-share-btn{
+  font-size: 28rpx;
+  vertical-align: middle;
+  margin-top: 26rpx;
+}
+.teamManage-li-share-go{
+  width: 24rpx;
+  height:24rpx;
+  vertical-align: middle;
+}
+.shadow-footer{
+  width:100%;
+  position: absolute;
+  bottom:0;
+}
+.shadow-footer-li{
+  width: 100%;
+  height:99rpx;
+  line-height: 99rpx;
+  text-align: center;
+  font-size: 30rpx;
+  background:#fff;
+  border-bottom: 1px solid #eee;
+}
+.close-shadow2{
+  margin-top: 7rpx;
+}

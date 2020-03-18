@@ -1,0 +1,56 @@
+<!--我的报告规则pages/mine/minePresentation/selfPresentationRule/selfPresentationRule.wxml-->
+<view class="selfPresentationRule-body box-sizing">
+  <image src="../../../../img/selfPresentationRule-head.png" mode="scaleToFill" class="selfPresentationRule-head"></image>
+  <view class="selfPresentationRule-title1">一、规则 </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">1. 去哪里写评估报告？</view>
+    <view class="selfPresentationRule-list-msg">
+      每条政策解读下方，点击“报告”可进入评估报告撰写页面
+    </view>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">2. 谁可以看见我的报告? </view>
+    <view class="selfPresentationRule-list-msg">
+      您企业账户中“管理层”账号可看见您的评估报告，另外您也可以通过“分享”把报告转发给您想要分享的微信好友。
+    </view>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">3. 评估报告可以修改吗? </view>
+    <view class="selfPresentationRule-list-msg">
+      可以修改，修改后“管理层”会同步您的修改结果。
+    </view>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">4. 为什么我没有看到汇报？ </view>
+    <view class="selfPresentationRule-list-msg">
+      您的员工还没有进行填写。
+    </view>
+  </view>
+  <view class="selfPresentationRule-title1">二、生成技巧 </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">1. 确认政策与企业的相关性 </view>
+    <view class="selfPresentationRule-list-msg">
+      若选择不相关，则评估结束。选择相关则需要继续填写。
+    </view>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">2. 可能对企业的影响</view>
+    <view class="selfPresentationRule-list-msg">
+      请务必选择影响星级哦，若不知道内容如何填写，可点击“专家意见”进行参考。
+    </view>
+    <image style="height:296rpx" class="selfPresentationRule-list-img" src="../../../../img/selfPresentationRule-yx.png" mode="scaleToFill"></image>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">3. 您的意见或建议</view>
+    <view class="selfPresentationRule-list-msg">
+      若不知道内容如何填写，可点击“参考”查看方向性参考。
+    </view>
+    <image style="height:296rpx" class="selfPresentationRule-list-img" src="../../../../img/selfPresentationRule-jy.png" mode="scaleToFill"></image>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">4. 需知晓部门及注意事项</view>
+    <view class="selfPresentationRule-list-msg">
+      该政策所影响的相关部门，如销售部、采购部等.以及在实际工作中应注意的事项。
+    </view>
+  </view>
+</view>

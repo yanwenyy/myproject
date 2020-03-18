@@ -1,126 +1,201 @@
 <!--首页index.wxml-->
-
 <view class="container">
-  <swiper class="index-swiper" autoplay="true" interval="2000" indicator-dots="true" circular="true">
-        <block wx:for="{{background}}" wx:key="*this">
-          <swiper-item>
-            <image class="index-swiper-img" src="{{item}}"></image>
-          </swiper-item>
-        </block>
-  </swiper>
-  <view class="user-msg">
-      <view class="inline-block">
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-       </view>
-      <view class="inline-block user-name-group">
-        <view><text class="userinfo-nickname inline-block">{{userInfo.nickName}}</text></view>
-        <view class="coach-group">
-          <progress percent="20" class="coach-progress inline-block" border-radius="20" color="#FA743E"/>
-          <view class="inline-block coach-num"><text class="orange">6</text>/12</view>
-          <text>辅导进度</text>
-          </view>
-      </view>
-  </view>
-  <view class="userinfo" wx:if="{{false}}">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="go-test" wx:if="{{false}}"> 
-    <navigator url="../test/test" hover-class="navigator-hover" open-type="navigate">去测试</navigator> 
-     <navigator url="../pie/pie" hover-class="navigator-hover" open-type="navigate">饼状图</navigator> 
-  </view> 
-  <view class="coach-model index-tab-model box-sizing">
-    <view class="inline-block index-tab-group">
-        <image style="width:60rpx;height:60rpx" src="../../img/index-tab1.png" mode="scaleToFill"></image>
-        <view>我的辅导</view>
-         <button wx:if="{{ifvip}}" data-value="1" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button>
-    </view>
-     <view class="inline-block index-tab-group">
-        <image style="width:60rpx;height:60rpx" src="../../img/index-tab2.png" mode="scaleToFill"></image>
-        <view>我的报告</view>
-    </view>
-     <view class="inline-block index-tab-group">
-        <image style="width:64rpx;height:62rpx" src="../../img/index-tab3.png" mode="scaleToFill"></image>
-        <view>政策查询</view>
-    </view>
-     <view class="inline-block index-tab-group">
-        <image style="width:69rpx;height:63rpx" src="../../img/index-tab4.png" mode="scaleToFill"></image>
-        <view>VIP咨询</view>
-    </view>
-  </view>
-  <view class="index-head">当前辅导</view>
-  <view class="coach-model">
-    <view class="index-head-two box-sizing">
-      <text>2019年2月政策</text>
-      <view class="inline-block index-head-two-class">更新期</view>
-    </view>
-    <view class="coaching-pie">
-      <view class="inline-block"><canvas-ring id="canvasRing" value="1" title="打卡" lineColor="#FA743E"></canvas-ring></view>
-      <view class="inline-block"> <canvas-ring id="canvasRing2" value="3" title="测试" lineColor="#80C6FD"></canvas-ring></view>
-    </view>
-    <view class="go-coach orange" bindtap="goCoach">
-      去辅导<image src="../../img/go-coach.png" mode="scaleToFill"></image>
-    </view>
-  </view>
-  <view class="index-head">当前评测</view>
-  <view class="coach-model index-assessment-model">
-    <view class="index-head-two box-sizing">
-      <text>2019年2月政策</text>
-      <view class="inline-block index-head-two-class">评测期</view>
-    </view>
-    <view class="assessment-dateEnd">
-      距离测试结束:
-        <text class=''>{{endtime.day}}</text>天
-        <text class=''>{{endtime.hou}}</text>:
-        <text class=''>{{endtime.min}}</text>:
-        <text class=''>{{endtime.sec}}</text>
-    </view>
-    <view class="assessment-result box-sizing">
-      <image src="../../img/assessment-bg.png"  mode="scaleToFill"></image>
-      <view class="assessment-result-msg box-sizing">
-          <view class="inline-block accuracy-rate orange">
-            <view>30%</view>
-            <view>正确率</view>
-          </view>
-          <view class="inline-block accuracy-msg">
-            <view class="accuracy-msg-name">
-              <text>10/12 题</text>
-              <text>评测未完成</text>
-            </view>
-            <progress percent='20' color="#fff" border-radius="16rpx" backgroundColor=
-            "rgba(255,255,255,0.5)"></progress>
-          </view>
-      </view>
-    </view>
-    <view class="assessment-result-footer box-sizing">
-          <view class="inline-block">新政发布2</view>
-          <view class="inline-block">待打卡5</view>
-          <view class="inline-block">待测试3</view>
-      </view>
-  </view>
-  <view class="assessment-ul">
-    <view class="assessment-li">
-      <image src="../../img/go-test.png" mode="scaleToFill"></image>
-      <text>您当前有未完成的测试</text>
-      <view class="inline-block assessment-li-btn">去测试</view>
-    </view>
-     <view class="assessment-li">
-      <image src="../../img/go-sign.png" mode="scaleToFill"></image>
-      <text>您当前有未完成的打卡</text>
-      <view class="inline-block assessment-li-btn">去打卡</view>
-    </view>
-     <view class="assessment-li">
-      <image src="../../img/go-test-again.png" mode="scaleToFill"></image>
-      <text>满分控可选择补考</text>
-      <view class="inline-block assessment-li-btn">去补考</view>
-    </view>
-     <view class="assessment-li">
-      <image src="../../img/go-assessment.png" mode="scaleToFill"></image>
-      <text>您当前有未完成的政策评估</text>
-      <view class="inline-block assessment-li-btn">去评估</view>
-    </view>
-  </view>
+	<swiper class="index-swiper" autoplay="true" interval="2000" indicator-dots="{{background.length>1}}" circular="true" indicator-active-color="#fff">
+		<block wx:for="{{background}}" wx:key="*this">
+			<swiper-item>
+				<image bindtap="swiperClick" class="index-swiper-img" src="{{item.imgUrl?'http://'+item.imgUrl:''}}"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="user-msg">
+		<view class="inline-block">
+			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.headImg}}" mode="cover"></image>
+		</view>
+		<view class="inline-block user-name-group">
+			<view>
+				<text class="userinfo-nickname inline-block">{{userInfo.nickname}}</text>
+			</view>
+			<view class="coach-group">
+				<progress percent="{{(progress/12)*100}}" class="coach-progress inline-block" border-radius="20" color="#FA743E" />
+				<view class="inline-block coach-num">
+					<text class="orange">{{progress||0}}</text>/12</view>
+				<text>辅导进度</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="userinfo" wx:if="{{false}}">
+		<view wx:if="{{!hasUserInfo && canIUse}}" class="shadow">
+			<view class="scope-model">
+				<button class="scope-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+					获取头像昵称
+				</button>
+			</view>
+		</view>
+		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+		<block wx:else>
+			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view>
+	<view class="coach-model index-tab-model box-sizing">
+		<view class="inline-block index-tab-group" bindtap='goTab' data-tab="../mine/mineCoach/mineCoach" data-status="{{false}}">
+			<image style="width:60rpx;height:60rpx" src="../../img/index-tab1.png" mode="scaleToFill"></image>
+			<view>我的辅导</view>
+			<button wx:if="{{false}}" data-url="../mine/mineCoach/mineCoach" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button>
+		</view>
+		<view class="inline-block index-tab-group" bindtap='goTab' data-type="bg" data-tab="{{userInfo.role==0?'../mine/minePresentation/mangerPresentation/mangerPresentation':'../mine/minePresentation/selfPresentation/selfPresentation'}}" data-status="{{false}}">
+			<image style="width:60rpx;height:60rpx" src="../../img/index-tab2.png" mode="scaleToFill"></image>
+			<view wx:if="{{userInfo.role!=0}}">我的报告</view>
+			<view wx:if="{{userInfo.role==0}}">团队报告</view>
+		</view>
+		<view class="inline-block index-tab-group" bindtap='goTab' data-tab="../search/searchPolicy/searchPolicy" data-status="{{false}}">
+			<image style="width:64rpx;height:62rpx" src="../../img/index-tab3.png" mode="scaleToFill"></image>
+			<view>政策查询</view>
+		</view>
+		<view wx:if="{{false}}" class="inline-block index-tab-group" bindtap="goTab" data-tab="../microConsultation/microConsultationList/microConsultationList" data-type="wzx">
+			<image style="width:69rpx;height:63rpx" src="../../img/index-tab4.png" mode="scaleToFill"></image>
+			<view>微咨询</view>
+		</view>
+	</view>
+	<view class="index-head" wx:if="{{coaching}}">当前辅导</view>
+	<view class="coach-model box-sizing" wx:if="{{coaching}}">
+		<view class="index-head-two box-sizing">
+			<text>{{coaching.title}}</text>
+			<view wx:if="{{coaching.status==0}}" class="inline-block index-head-two-class">预上线</view>
+			<view class="inline-block index-head-two-class">更新期</view>
+			<view wx:if="{{coaching.status==2}}" class="inline-block index-head-two-class">测试期</view>
+			<view wx:if="{{coaching.status==3}}" class="inline-block index-head-two-class">评估期</view>
+			<view wx:if="{{coaching.status==4}}" class="inline-block index-head-two-class">完结期</view>
+		</view>
+		<view class="coaching-pie" wx:if="{{false}}">
+			<view class="inline-block">
+				<canvas-ring id="canvasRing" value="{{coaching.punshNum}}" maxValue="{{coaching.sumPunshNum}}" title="打卡" lineColor="#FA743E"></canvas-ring>
+			</view>
+			<view class="inline-block">
+				<canvas-ring id="canvasRing2" value="{{coaching.aledNum}}" maxValue="{{coaching.examNum}}" title="测试" lineColor="#80C6FD"></canvas-ring>
+			</view>
+		</view>
+		<view class="coaching-new-msg box-sizing">
+			<image class="coaching-new-msg-img" src="../../img/index-new-coaching-bg.png" mode="scaleToFill"></image>
+			<view class="coaching-new-msg-view box-sizing">
+				本月新政发布：{{coaching.policyNum}}条
+			</view>
+		</view>
+		<view class="go-coach" data-id="{{coaching.id}}" bindtap="goCoach">
+			<view class="inline-block go-coach-nodk">
+				您有
+				<text class="orange">{{coaching.noPunshNum}}</text>条未打卡
+			</view>
+			<view class="inline-block orange">
+				去辅导
+				<image class="goCoach-img" src="../../img/go-coach.png" mode="scaleToFill"></image>
+			</view>
+		</view>
+	</view>
+	<view class="index-head" wx:if="{{evaluating}}">当前评测</view>
+	<view class="coach-model index-assessment-model" wx:if="{{evaluating}}" data-id="{{evaluating.id}}" bindtap="goCoach">
+		<view class="index-head-two box-sizing" style="{{evaluating.examNum-evaluating.aledNum>0?'margin-bottom:0':'margin-bottom:39rpx'}}">
+			<text>{{evaluating.title}}</text>
+			<view class="inline-block index-head-two-class">评测期</view>
+		</view>
+		<view class="assessment-dateEnd" wx:if="{{evaluating.examNum-evaluating.aledNum>0}}">
+			距离测试结束:
+			<text class=''>{{endtime.day}}</text>天
+			<text class=''>{{endtime.hou}}</text>:
+			<text class=''>{{endtime.min}}</text>:
+			<text class=''>{{endtime.sec}}</text>
+		</view>
+		<view class="assessment-result box-sizing">
+			<image src="../../img/assessment-bg.png" mode="scaleToFill"></image>
+			<view class="assessment-result-msg box-sizing">
+				<view class="inline-block accuracy-rate orange">
+					<view>{{evaluating.rightPercent}}%</view>
+					<view>正确率</view>
+				</view>
+				<view class="inline-block accuracy-msg">
+					<view class="accuracy-msg-name">
+						<text>{{evaluating.ansNum}}/{{evaluating.quNum}} 题</text>
+						<text wx:if="{{evaluating.examNum-evaluating.aledNum>0}}">评测未完成</text>
+						<text wx:if="{{evaluating.examNum-evaluating.aledNum<=0}}">评测完成</text>
+						<text wx:if="{{status==4&&(evaluating.examNum-evaluating.aledNum>0)}}">旷考</text>
+					</view>
+					<progress percent='{{evaluating.ansNum/evaluating.quNum*100}}' color="#fff" border-radius="16rpx" backgroundColor="rgba(255,255,255,0.5)"></progress>
+				</view>
+			</view>
+		</view>
+		<view class="assessment-result-footer box-sizing">
+			<view class="inline-block">新政发布{{evaluating.sumPunshNum}}</view>
+			<view class="inline-block">待打卡{{evaluating.sumPunshNum-evaluating.punshNum}}</view>
+			<view class="inline-block">待测试{{evaluating.examNum-evaluating.aledNum}}</view>
+		</view>
+	</view>
+	<view class="assessment-ul" wx:if="{{evaluating}}">
+		<view class="assessment-li" wx:if="{{evaluating.examNum-evaluating.aledNum>0}}">
+			<image src="../../img/go-test.png" mode="scaleToFill"></image>
+			<text>您当前有未完成的测试</text>
+			<view class="inline-block assessment-li-btn" bindtap="assessmentClick" data-url="{{'../mine/mineCoach/testCard/testCard?status='+evaluating.status+'&id='}}">去测评</view>
+		</view>
+		<view class="assessment-li" wx:if="{{evaluating.sumPunshNum-evaluating.punshNum>0}}">
+			<image src="../../img/go-sign.png" mode="scaleToFill"></image>
+			<text>您当前有未完成的打卡</text>
+			<view class="inline-block assessment-li-btn" bindtap="assessmentClick" data-url="../mine/mineCoach/coachDetail/coachDetail?id=">去打卡</view>
+		</view>
+		<view class="assessment-li" wx:if="{{evaluating.againExam}}">
+			<image src="../../img/go-test-again.png" mode="scaleToFill"></image>
+			<text>满分控可选择补考</text>
+			<view class="inline-block assessment-li-btn" bindtap="assessmentClick" data-url="{{'../test/wrontTest/wrontTest?date='+evaluating.packDate+'&id='}}">去补考</view>
+		</view>
+		<view class="assessment-li" wx:if="{{evaluating.evluationNum>0&&userInfo.role!=0}}">
+			<image src="../../img/go-assessment.png" mode="scaleToFill"></image>
+			<text>您当前有未完成的政策评估</text>
+			<view class="inline-block assessment-li-btn" bindtap="assessmentClick" data-url="../mine/mineCoach/coachDetail/coachDetail?id=">去报告</view>
+		</view>
+	</view>
+	<view class="index-head" wx:if="{{updating}}">近期更新</view>
+	<view wx:if="{{updating}}" wx:for="{{updating}}" wx:key="index" data-id="{{item.id}}" data-type="{{item.type}}" bindtap='goUnscramble' class="coach-model box-sizing jqgx-model">
+		<view class="coachDetail-zc-head">
+			<view class="inline-block">{{item.officialReleaseDate}}</view>
+			<view class="inline-block orange" wx:if="{{item.type==1&&item.punchSstatus==0}}">
+				未打卡
+			</view>
+		</view>
+		<view>
+			<image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+			<view class="coachDetail-zc-right inline-block">
+				<view class="coachDetail-zc-right-name">{{item.title}}</view>
+				<view class="coachDetail-zc-right-date">{{item.fileNum}}</view>
+				<view class="coachDetail-zc-right-class">
+					<text wx:for="{{item.tags}}" wx:if="{{item!=''}}" wx:key="*this" class="inline-block">{{item}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- wx:if="{{ifSy==1||ifSy==2}}" -->
+	<view class="try" bindtap="openShadow"  wx:if="{{ifSy==1||ifSy==2}}">
+		<image src="../../img/try.png" mode="scaleToFill"></image>
+		<view class="inline-block try-date">{{tryNum}}</view>
+	</view>
+	<view class="shadow" wx:if="{{shadow}}" bindtap="closeShadow">
+		<view wx:if="{{receiveShadow}}" class="receive-model">
+			<image src="../../img/receive-img.png" mode="scaleToFill" class="receive-img"></image>
+			<view class="receive-date inline-block">{{tryNum}}</view>
+			<view class="receive-btn" catchtap="receiveClick"></view>
+		</view>
+		<view wx:if="{{hyShadow}}" class="hy-model coach-model box-sizing">
+			<view class="hy-model-title">请选择您的行业</view>
+			<view class="hy-model-msg">
+				<view wx:for="{{hyList}}" wx:key="index" data-msg="{{item.tradeId}}" class="inline-block {{hySelect==item.tradeId?'hy-model-act':''}}" catchtap="hyChange">{{item.tradeName}}</view>
+			</view>
+			<button class="hy-model-btn" catchtap="hySub">确定</button>
+		</view>
+	</view>
+	<!-- wx:if="{{tryVipModel}}" -->
+	<view class="shadow" wx:if="{{tryVipModel}}" bindtap="closetryShadow">
+		<view class="tryVipModel box-sizing">
+			<view>试用领取成功!</view>
+			<view class="tryVipModelMsg">您可以邀请两位同事一同试用</view>
+			<button open-type="share" class="shadow-msg-model-btn">邀请同事</button>
+		</view>
+	</view>
 </view>

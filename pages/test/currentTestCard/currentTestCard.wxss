@@ -1,0 +1,72 @@
+/* pages/test/currentTestCard/currentTestCard.wxss */
+.currentTestCard-head{
+    width:94%;
+    height:401rpx;
+    margin:11rpx auto;
+    position: relative;
+}
+.currentTestCard-bg,.currentTestCard-head-msg{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.currentTestCard-pie{
+  width:190rpx;
+  height:190rpx;
+  margin: 46rpx auto 28rpx auto;
+  text-align: center;
+}
+.currentTestCard-head-footer{
+  font-size:28rpx;
+  color:#999;
+  text-align: center;
+}
+.currentTestCard-head-footer>view:not(:nth-child(1)){
+  margin-left: 38rpx;
+}
+.currentTestCard-head-footer text{
+  display: inline-block;
+  width: 14rpx;
+  height:14rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: #eee;
+  margin-right:6rpx;
+}
+.green-dot{
+  background: #44CD98!important;
+}
+.orange-dot{
+  background: #F56A32!important;
+}
+.currentTestCard-body{
+  margin: 45rpx 35rpx;
+}
+.currentTestCard-num{
+  width: 66rpx;
+  height:66rpx;
+  margin: 0 23rpx 45rpx 25rpx;
+  background: #eee;
+  border-radius: 50%;
+  color:#fff;
+  line-height: 66rpx;
+  text-align: center;
+}
+.currentTestCard-body-title-go{
+  width: 13rpx;
+  height: 24rpx;
+  margin-left: 9rpx;
+  vertical-align: middle;
+  margin-top:-5rpx;
+}
+.currentTestCard-body-title{
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60rpx;
+}
+.currentTestCard-body-title>view:nth-child(1){
+  font-size:32rpx;
+}

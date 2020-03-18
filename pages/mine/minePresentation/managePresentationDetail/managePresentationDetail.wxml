@@ -1,0 +1,196 @@
+<!--个人报告详情pages/mine/minePresentation/managePresentationDetail/managePresentationDetail.wxml-->
+<!-- 引入要用的函数 -->
+ <wxs module="func">
+      module.exports = {
+        slice: function (value,n) {
+          return value.slice(0,n)
+        }
+      }
+</wxs>
+<view class="container">
+  <view class="selfPresentationDetail-head">
+    <image src="../../../../img/selfPresentationDetail-head.png" mode="scaleToFill" class="selfPresentationDetail-head-img"></image>
+    <view class="selfPresentationDetail-head-msg box-sizing">
+      <view class="selfPresentationDetail-h-m-date">
+        <text class="inline-block">{{date}} 第{{num}}期  </text>
+        <text class="inline-block">本月共发布{{msg.sumNum}}条政策</text>
+      </view>
+      <view class="selfPresentationDetail-h-m-title">财税政策变更评估报告</view>
+    </view>
+  </view>
+  <view wx:if="{{msg.noEvaluationList!=''||msg.releateList!=''||msg.noReleateList!=''}}">
+    <view class="selfPresentationDetail-notice">
+      未填写
+      <text class="orange">{{msg.noEvaluationList.length}}</text>条
+    </view>
+    <view class="coach-model box-sizing" wx:for="{{msg.noEvaluationList}}" wx:key="index">
+      <view>
+        <image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+        <view class="coachDetail-zc-right inline-block">
+          <view class="coachDetail-zc-right-name">
+            {{item.title}}
+          </view>
+          <view class="coachDetail-zc-right-date">
+            {{item.fileNum}}
+          </view>
+        </view>
+        <view class="no-write-btn orange" bindtap="goEdit" data-id="{{item.policyId}}">
+          去填写
+          <image class="no-write-btn-img" src="../../../../img/go-coach.png" mode="scaleToFill"></image>
+        </view>
+      </view>
+    </view>
+    <view class="selfPresentationDetail-notice">
+      与我司相关
+      <text class="orange">{{msg.releateList.length}}</text>条
+    </view>
+    <!-- msg.releateList -->
+    <view wx:for="{{msg.releateList}}" wx:key="index" class="selfPresentationDetail-body">
+      <view class="coach-model box-sizing">
+        <view>
+          <image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+          <view class="coachDetail-zc-right inline-block">
+            <view class="coachDetail-zc-right-name">
+              {{item.title}}
+            </view>
+            <view class="coachDetail-zc-right-date">
+              {{item.fileNum}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="assessmentResult-body box-sizing">
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 该政策对我司的影响度
+            <!-- <text class="orange edit-pg">修改</text> -->
+          </view>
+          <view class="assessmentResult-list-star">
+            <image src="{{item.affectExtent>0? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="1" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>1? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="2" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>2? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="3" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>3? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="4" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>4? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="5" mode="scaleToFill"></image>
+          </view>
+        </view>
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 该政策可能对我司产生的影响</view>
+          <view class="assessmentResult-list-msg">
+            {{item.affect.length>45? func.slice(item.affect,45)+"...":item.affect}}
+          </view>
+        </view>
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 我的建议、意见</view>
+          <view class="assessmentResult-list-msg">
+            {{item.opinion.length>45?func.slice(item.opinion,45)+"...":item.opinion}}
+          </view>
+        </view>
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 需知晓部门及注意事项</view>
+          <view class="assessmentResult-list-msg">
+            {{item.executive.length>45?func.slice(item.executive,45)+"...":item.executive}}
+          </view>
+        </view>
+        <view class="assessmentResult-footer">
+          <view class="inline-block" bindtap="goShare" data-name="zc" data-msg="分享报告" data-id="{{item.policyId}}">
+            <image class="assessmentResult-footer-img" src="../../../../img/assessment-zf.png" mode="scaleToFill"></image>
+            <text>转发</text>
+          </view>
+          <view class="assessmentResult-footer-line"></view>
+          <view class="inline-block" bindtap="goResult" data-id="{{item.policyId}}">
+            <image class="assessmentResult-footer-img" src="../../../../img/assessment-ck.png" mode="scaleToFill"></image>
+            <text>查看</text>
+          </view>
+          <view class="assessmentResult-footer-line"></view>
+          <view class="inline-block" bindtap="goEdit" data-id="{{item.policyId}}">
+            <image class="assessmentResult-footer-img" src="../../../../img/assessment-xg.png" mode="scaleToFill"></image>
+            <text>修改</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="selfPresentationDetail-notice">
+      与我司不相关
+      <text class="orange">{{msg.noReleateList.length}}</text>条
+    </view>
+    <!-- msg.evluationUser.noReleateList -->
+    <view wx:for="{{msg.noReleateList}}" wx:key="index" class="selfPresentationDetail-body">
+      <view class="coach-model box-sizing">
+        <view>
+          <image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+          <view class="coachDetail-zc-right inline-block">
+            <view class="coachDetail-zc-right-name">
+              {{item.title}}
+            </view>
+            <view class="coachDetail-zc-right-date">
+              {{item.fileNum}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="assessmentResult-body box-sizing">
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 该政策对我司的影响度
+            <!-- <text class="orange edit-pg">修改</text> -->
+          </view>
+          <view class="assessmentResult-list-star">
+            <image src="../../../../img/pg-star.png" data-value="1" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="2" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="3" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="4" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="5" mode="scaleToFill"></image>
+          </view>
+        </view>
+        <view class="assessmentResult-footer">
+          <view class="inline-block" bindtap="goShare" data-id="{{item.policyId}}" data-name="zc" data-msg="分享报告">
+            <image class="assessmentResult-footer-img" src="../../../../img/assessment-zf.png" mode="scaleToFill"></image>
+            <text>转发</text>
+          </view>
+          <view class="assessmentResult-footer-line"></view>
+          <view class="inline-block" bindtap="goResult" data-id="{{item.policyId}}">
+            <image class="assessmentResult-footer-img" src="../../../../img/assessment-ck.png" mode="scaleToFill"></image>
+            <text>查看</text>
+          </view>
+          <view class="assessmentResult-footer-line"></view>
+          <view class="inline-block" bindtap="goEdit" data-id="{{item.policyId}}">
+            <image class="assessmentResult-footer-img" src="../../../../img/assessment-xg.png" mode="scaleToFill"></image>
+            <text>修改</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-msg" wx:if="{{msg.noEvaluationList==''&&msg.releateList==''&&msg.noReleateList==''}}">
+      <image src="../../../../img/no-pg.png" mode="scaleToFill"></image>
+      <view>暂无评估</view>
+  </view>
+  <view class="selfPresentationDetail-share" bindtap="goShare" data-name="zcb" data-msg="分享报告" data-id="{{id}}">
+    <image src="../../../../img/selfPresentationDetail-share.png" mode="scaleToFill"></image>
+  </view>
+  <view class="shadow" wx:if="{{shadow}}">
+    <view wx:if="{{!canvas}}" class="shadow-body coach-model box-sizing">
+      <view class="shadow-title">
+        {{shadowTitle}}
+        <image class="close-shadow" mode="scaleToFill" src="../../../../img/shadow-close.png" bindtap="closeShadow"></image>
+      </view>
+      <view class="shadow-msg">
+        <view class="inline-block shadow-msg-model">
+          <image class="shadow-msg-model-img" src="../../../../img/share-zf.png" mode="scaleToFill"></image>
+          <button open-type="share" class="shadow-msg-model-btn"></button>
+        </view>
+        <view class="inline-block shadow-msg-model">
+          <image class="shadow-msg-model-img" src="../../../../img/share-tp.png" mode="scaleToFill"></image>
+          <button class="shadow-msg-model-btn" bindtap='share'></button>
+        </view>
+      </view>
+    </view>
+    <view class="canvas-bg box-sizing" style="margin-top:{{margin}}" bindtap="closeCanvas">
+      <canvas canvas-id="shareImg" class="canvas"></canvas>
+      <button class="save-canvas" catchtap='save'>保存分享图</button>
+    </view>
+  </view>
+</view>

@@ -13,6 +13,14 @@
   background: rgba(0,0,0,0.3);
   position: fixed;
   top:0;
+  left:0;
+  z-index: 9999
+}
+.scope-button{
+  width: 400rpx;
+  background: #44CD98;
+  color:#fff;
+  margin:auto;
 }
 .inline-block{
   display: inline-block;
@@ -23,9 +31,33 @@
 .orange{
   color:#FA743E!important;
 }
+.green{
+  color:#44CD98!important;
+}
 .coach-model{
   width: 100%;
   height:auto;
   background: #fff;
   border-radius: 16rpx;
+}
+.mine-team{
+  padding:29rpx 36rpx;
+  height:237rpx;
+  margin-top:18rpx;
+}
+.mine-team-title{
+  font-size: 30rpx;
+  color:#000;
+  font-weight: bold;
+  margin-bottom: 29rpx;
+}
+.no-msg{
+  font-size:30rpx;
+  color:#666;
+  text-align: center;
+}
+.no-msg>image{
+  width: 367rpx;
+  height:251rpx;
+  margin: 206rpx auto 75rpx auto;
 }

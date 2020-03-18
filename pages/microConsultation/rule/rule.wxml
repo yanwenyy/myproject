@@ -1,0 +1,27 @@
+<!--微咨询问答规则pages/microConsultation/rule/rule.wxml-->
+<view class="container">
+    <view class="coach-model rule-body box-sizing">
+      <view class="rule-title">1. 问答流程：</view>
+      <view class="rule-process">
+        <view class="inline-block">
+            <image src="../../../img/rule1.png" mode="scaleToFill" class="rule-process-img"></image>
+            <view>1.提问</view>
+        </view>
+        <view class="inline-block">
+            <image src="../../../img/rule2.png" mode="scaleToFill" class="rule-process-img"></image>
+            <view>2.内收到答案  </view>
+        </view>
+        <view class="inline-block">
+            <image src="../../../img/rule3.png" mode="scaleToFill" class="rule-process-img"></image>
+            <view>3.采纳最优</view>
+        </view>
+      </view>
+      <view class="rule-title">2. 问答规则：</view>
+      <view>① 您的问题将被至多两位咨询师抢答。</view>
+      <view>② 收到答案后需采纳一个最佳答案，否则不     能继续提问哦！</view>
+      <view class="rule-title">3. 问答描述：</view>
+      <view>请你详细描述您的企税问题如：“您的企业状况、问题描述、问题背景等。以便咨询师可以更好的为您解答</view>
+      <view class="rule-title">4. 提问范围：</view>
+      <view>针对企税争议、方案设计、棘手问题、创新模式等问题不适用问答模式，请您联系客服为您提供专属服务。</view>
+    </view>
+</view>

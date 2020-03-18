@@ -1,0 +1,30 @@
+<!--管理员报告汇总pages/mine/minePresentation/mangerPresentationSum/mangerPresentationSum.wxml-->
+<view class="container">
+  <view class="selfPresentationDetail-head">
+      <image src="../../../../img/selfPresentationDetail-head.png" mode="scaleToFill" class="selfPresentationDetail-head-img"></image>
+      <view class="selfPresentationDetail-head-msg box-sizing">
+          <view class="selfPresentationDetail-h-m-date">
+              <text class="inline-block">{{date}} 第{{num}}期  </text>
+          </view>
+          <view class="selfPresentationDetail-h-m-title">财税政策变更评估报告</view>
+      </view>
+  </view>
+  <view class="selfPresentationDetail-notice" wx:if="{{list!=''}}">
+      汇报人：
+  </view>
+  <view class="selfPresentationDetail-body" wx:if="{{list!=''}}">
+    <view bindtap="goDetail" wx:for="{{list}}" wx:key="index" class="mangerPresentationSum-list box-sizing" data-uuid="{{item.uuid}}">
+        <image src="{{item.headImg}}" mode="scaleToFill" class="mangerPresentationSum-list-img"></image>
+        <view class="mangerPresentationSum-msg inline-block">
+            <view class="mangerPresentationSum-list-name">{{item.realName||item.nickname}}</view>
+            <view class="mangerPresentationSum-list-relate">
+              评估<text class="orange">{{item.releateNum}}</text>条政策与我司相关 
+            </view>
+        </view>
+    </view>
+  </view>
+  <view class="no-msg" wx:if="{{list==''}}">
+      <image src="../../../../img/no-pg.png" mode="scaleToFill"></image>
+      <view>暂无评估</view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "ccvod": "../../../ccvod/ccvod",
+    "ccaud": "../../../ccaud/ccaud"
+  }
+}

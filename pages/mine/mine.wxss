@@ -1,1 +1,132 @@
 /* pages/mine/mine.wxss */
+@import "../share/inviteStaff/inviteStaff.wxss";
+.mine-head{
+  display: flex;
+  justify-content: space-between
+}
+.mine-head-msg{
+  width:70%;
+}
+.mine-card-kt-img{
+  width:157rpx;
+  height:58rpx;
+  
+}
+.mine-head-nologin{
+  font-size:42rpx;
+  vertical-align: middle;
+  font-weight: bold;
+  margin-top: 29rpx;
+}
+.mine-head-img-user{
+  width:100rpx;
+  height:100rpx;
+  vertical-align: middle;
+  margin-right: 18rpx;
+  border-radius: 50%;
+  background: #eee;
+}
+.mine-head-img-go{
+  width:28rpx;
+  height:28rpx;
+  vertical-align: middle;
+}
+.mine-head-name{
+  font-size:36rpx;
+  font-weight:bold;
+  margin-bottom: 19rpx;
+}
+.mine-head-role{
+  font-size:26rpx;
+  color:#666;
+  margin-bottom: 11rpx;
+}
+.mine-head-company{
+  font-size:26rpx;
+  color:#999;
+}
+.mine-card{
+  width:100%;
+  height:150rpx;
+  position: relative;
+  margin-top:32rpx;
+}
+.mine-card-kt{
+  width: 157rpx;
+  height:58rpx;
+  position: absolute;
+  top:45rpx;
+  right:49rpx;
+}
+.mine-card-img,.mine-card-msg{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.mine-card-msg{
+  padding:31rpx 38rpx;
+}
+.mine-card-vip>image{
+  width:39rpx;
+  height:36rpx;
+  margin-bottom: 9rpx;
+}
+.mine-card-msg-group{
+  display: flex;
+  justify-content: space-between;
+}
+.mine-card-msg-name{
+  font-size:30rpx;
+  color:#F9ECD1;
+  font-weight: bold;
+}
+.mine-card-msg-date{
+  font-size: 26rpx;
+  background:linear-gradient(270deg,rgba(225,172,140,1) 0%, rgba(252,239,212,1) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.mine-team-ul{
+  display: flex;
+  justify-content: space-between;
+}
+.mine-team-list{
+  text-align: center;
+  font-size:24rpx;
+}
+.mine-team-list>image{
+  width:54rpx;
+  height:54rpx;
+  margin-bottom: 12rpx;
+}
+.mine-list{
+  padding:43rpx;
+  margin-top: 20rpx;
+}
+.mine-list-li{
+  display: flex;
+  justify-content: space-between;
+  font-size:30rpx;
+  padding-bottom: 30rpx;
+  color:#333;
+  vertical-align: middle;
+}
+.mine-list-li:not(:last-child){
+  margin-bottom: 32rpx;
+  border-bottom:1px solid #eee;
+}
+.mine-list-img{
+  width:52rpx;
+  height:52rpx;
+  vertical-align: middle;
+  margin-top:-10rpx;
+  /* margin-right: 22rpx; */
+}
+.mine-list-go{
+  width: 28rpx;
+  height:28rpx;
+  vertical-align: middle;
+  margin-top:5rpx;
+}

@@ -1,0 +1,81 @@
+<!--评估pages/mine/mineCoach/mineAssessment/mineAssessment.wxml-->
+<view>
+    <view class="mineAssessment-head box-sizing">
+        <!-- <text class="orange">1</text>/4 -->
+        <image wx:if="{{showNum==1}}" src="../../../../img/assessment-bg1.png" mode="scaleToFill"></image>
+        <image wx:if="{{showNum==2}}" src="../../../../img/assessment-bg2.png" mode="scaleToFill"></image>
+        <image wx:if="{{showNum==3}}" src="../../../../img/assessment-bg3.png" mode="scaleToFill"></image>
+        <image wx:if="{{showNum==4}}" src="../../../../img/assessment-bg4.png" mode="scaleToFill"></image>
+    </view> 
+    <view class="mineAssessment-body box-sizing">
+        <view class="mineAssessment-one" wx:if="{{showNum==1}}">
+            <view class="mineAssessment-body-title">1. 该政策与我司的相关性</view>
+            <view class="mineAssessment-body-choice">
+                <view bindtap='oneCheck' data-value="1" class="{{oneValue==1? 'mineAssessment-body-choice-act':''}}">相关</view>
+                <view bindtap='oneCheck' data-value="0" class="{{oneValue==0? 'mineAssessment-body-choice-act':''}}">不相关</view>
+            </view>
+        </view>
+        <view class="mineAssessment-three" wx:if="{{showNum==2}}">
+            <view class="mineAssessment-body-title" style="margin-bottom:53rpx">
+                <text>2. 可能对公司产生的影响<text class="orange">*</text>  </text>
+                <text bindtap="expertIdealClick" class="orange see-original">专家意见 </text>
+            </view>
+            <view class="mineAssessment-three-star">
+                <text>影响度</text>
+                <image bindtap='starClick' src="{{starNum>0? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="1" mode="scaleToFill"></image>
+                <image bindtap='starClick' src="{{starNum>1? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="2"  mode="scaleToFill"></image>
+                <image bindtap='starClick' src="{{starNum>2? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="3"  mode="scaleToFill"></image>
+                <image bindtap='starClick' src="{{starNum>3? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="4"  mode="scaleToFill"></image>
+                <image bindtap='starClick' src="{{starNum>4? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="5"  mode="scaleToFill"></image>
+            </view>
+            <view class="mineAssessment-textarea">
+                <textarea hidden="{{shadow}}" bindinput="affectInput" class="box-sizing" value="{{result.affect}}" placeholder="请输入内容"></textarea>
+            </view>
+        </view>
+        <view class="mineAssessment-four" wx:if="{{showNum==3}}">
+            <view class="mineAssessment-body-title" style="margin-bottom:43rpx">
+                <text>3. 您的建议或意见 </text>
+                <text bindtap="referIdealClick"  class="orange see-original">专家意见 </text>
+            </view>
+            <view class="mineAssessment-textarea">
+                <textarea hidden="{{shadow}}" bindinput="opinionInput" value="{{result.opinion}}" class="box-sizing" placeholder="请输入内容"></textarea>
+            </view>
+        </view>
+        <view class="mineAssessment-two" wx:if="{{showNum==4}}">
+            <view class="mineAssessment-body-title" style="margin-bottom:43rpx">
+                <text>4. 需知晓部门及注意事项 </text>
+                <!-- <text class="orange see-original">查看原文 </text> -->
+            </view>
+            <view class="mineAssessment-textarea">
+                <textarea class="box-sizing" bindinput="executiveInput" value="{{result.executive}}" placeholder="该政策所影响的相关部门，如销售部、采购部等以及在实际工作中应注意的事项"></textarea>
+            </view>
+            <!-- <view class="mineAssessment-tree-checkbox">
+                <checkbox></checkbox>全文相关
+            </view>  -->
+        </view>
+    </view>
+    <view class="mineAssessment-btn-group">
+        <view class="mineAssessment-btn-index" bindtap='indexNextClick' wx:if="{{showNum==1}}">下一步</view>
+        <view class="mineAssessment-btn-two box-sizing" wx:if="{{showNum>1&&showNum<4}}">
+            <view class="inline-block" bindtap='twoBtnPreClick'>上一步</view>
+            <view class="inline-block" bindtap='twoBtnNextClick'>下一步</view>
+        </view>
+        <view class="mineAssessment-btn-sub" bindtap='subAssessment' wx:if="{{showNum==4}}">提交</view>
+        <view class="mineAssessment-btn-help box-sizing" wx:if="{{showNum==4}}">
+            <!-- <view>急需解决的棘手税收问题；急需专家帮助的问题</view>
+            <view class="mineAssessment-btn-help-btn"> 一键求助 </view> -->
+            <view>保存后，会同步至企业管理层</view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}">
+        <view class="shadow-body coach-model box-sizing">
+            <view class="shadow-title">
+                {{shadowTitle}}
+                <image bindtap="closeShadow" class="shadow-close" src="../../../../img/shadow-close.png" mode="scaleToFill"></image>
+            </view>
+            <view class="shadow-msg">
+              <rich-text nodes="{{shadowMsg||''}}" ></rich-text>
+            </view>
+        </view>
+    </view>
+</view>

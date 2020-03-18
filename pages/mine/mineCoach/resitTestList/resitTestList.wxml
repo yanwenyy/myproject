@@ -1,0 +1,21 @@
+<!--补考列表pages/mine/mineCoach/resitTestList/resitTestList.wxml-->
+<view class="container">
+    <view class="resit-name">{{}} 共补考{{list.makeUpNum}}题</view>
+    <view class="resit-ul">
+        <view class="resit-li coach-model box-sizing" wx:for="{{list.policyQuDtos}}" wx:key="index">
+            <view class="resit-li-title">
+                {{item.title}}         
+            </view>
+            <view class='resit-li-num'>
+                <view wx:for="{{item.qus}}" wx:key="*this" class="inline-block {{item.replyStatus==1?'resit-li-num-already':''}}">{{index+1}}</view>
+            </view>
+            <view class="resit-li-footer">
+                <view wx:if="{{item.reviewStatus==1}}" class="resit-li-btn resit-li-btn-repeat inline-block" bindtap='goTestResit' data-status="{{item.reviewStatus}}" data-index="{{index}}">复查</view>
+                <view wx:if="{{item.reviewStatus==0}}" data-status="{{item.reviewStatus}}" class="resit-li-btn inline-block" bindtap='goTestResit' data-index="{{index}}">去答题</view>
+            </view>
+        </view>
+    </view> 
+    <view class="sub-btn box-sizing">
+        <button bindtap='subResitTest'>提交答案</button>
+    </view>
+</view>

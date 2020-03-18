@@ -1,0 +1,57 @@
+/* pages/mine/mine/mineOrder/mineOrder.wxss */
+.mineOrder-li{
+  padding:40rpx 38rpx;
+  margin-bottom:29rpx;
+}
+.mineOrder-li-title{
+  font-size:32rpx;
+  font-weight: bold;
+  padding-bottom:33rpx;
+  margin-bottom: 37rpx;
+  border-bottom:1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+.mineOrder-li-title>.orange{
+  font-size: 28rpx;
+}
+.mineOrder-li-msg{
+  padding-bottom:56rpx;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 54rpx;
+}
+.mineOrder-li-img{
+  width: 197rpx;
+  height:127rpx;
+  vertical-align: top;
+  margin-right: 34rpx;
+}
+.mineOrder-li-date{
+  vertical-align: top;
+  font-size: 24rpx;
+  color:#999;
+  width:62%;
+}
+.mineOrder-li-date>view{
+  margin-bottom: 10rpx;
+}
+.mineOrder-li-date-name{
+  font-size: 32rpx;
+  color:#333;
+  font-weight: bold;
+}
+.mineOrder-li-footer{
+  font-size:26rpx;
+  color:#999;
+  display: flex;
+  justify-content: space-between;
+}
+.mineOrder-li-footer-money{
+  font-size:28rpx;
+  color:#333;
+  margin-top:-10rpx;
+}
+.mineOrder-li-footer-money>text{
+  font-size:34rpx;
+  font-weight: bold;
+}

@@ -1,45 +1,89 @@
 {
   "pages": [
-   
+    
     "pages/index/index",
+    "pages/share/share",
+    "pages/scope/scope",
     "pages/logs/logs",
     "pages/test/test",
     "pages/evaluating/evaluating",
     "pages/mine/mine",
-    "pages/propaganda/propaganda",
     "pages/propaganda/pay/pay",
+    "pages/propaganda/propaganda",
     "pages/propaganda/editMsg/editMsg",
-    "pages/pie/pie",
-    "pages/mine/mineCoach/coachDetail/coachDetail",
+    "pages/test/wrontTest/wrontTest",
     "pages/mine/mineCoach/testCard/testCard",
-    "pages/test/wrontTest/wrontTest"
-   
+    "pages/mine/mineCoach/coachDetail/coachDetail",
+    "pages/mine/mineCoach/resitTestList/resitTestList",
+    "pages/mine/mineCoach/mineCoach",
+    "pages/mine/mineCoach/mineAssessment/mineAssessment",
+    "pages/mine/mineCoach/assessmentResult/assessmentResult",
+    "pages/mine/mineCoach/unscramble/unscramble",
+    "pages/test/currentTestCard/currentTestCard",
+    "pages/search/searchPolicy/searchPolicy",
+    "pages/search/searchPolicyList/searchPolicyList",
+    "pages/test/resitTest/resitTest",
+    "pages/mine/minePresentation/selfPresentation/selfPresentation",
+    "pages/mine/minePresentation/selfPresentationDetail/selfPresentationDetail",
+    "pages/mine/minePresentation/mangerPresentation/mangerPresentation",
+    "pages/test/testResult/testResult",
+    "pages/mine/minePresentation/mangerPresentationSum/mangerPresentationSum",
+    "pages/richText/richText",
+    "pages/mine/mine/mineMsg/mineMsg",
+    "pages/mine/mine/set/set",
+    "pages/mine/company/companyManage/companyManage",
+    "pages/mine/company/teamCoach/teamCoach",
+    "pages/mine/company/teamManage/teamManage",
+    "pages/mine/mine/mineOrder/mineOrder",
+    "pages/propaganda/invitationStaff/invitationStaff",
+    "pages/share/inviteStaff/inviteStaff",
+    "pages/share/acceptShare/acceptShare",
+    "pages/share/acceptShareMsg/acceptShareMsg",
+    "pages/mine/company/teamCoachDetail/teamCoachDetail",
+    "pages/mine/mineCoach/testPay/testPay",
+    "pages/mine/minePresentation/managePresentationDetail/managePresentationDetail",
+    "pages/mine/company/teamCoachTestCard/teamCoachTestCard",
+    "pages/mine/company/teamCoachTestResult/teamCoachTestResult",
+    "pages/share/assessmentZc/assessmentZc",
+    "pages/share/assessmentZcb/assessmentZcb",
+    "pages/microConsultation/microConsultationList/microConsultationList",
+    "pages/microConsultation/quesDetail/quesDetail",
+    "pages/microConsultation/ques/ques",
+    "pages/microConsultation/evaluate/evaluate",
+    "pages/microConsultation/mineQues/mineQues",
+    "pages/microConsultation/rule/rule",
+    "pages/mine/mine/mineAchievement/mineAchievement",
+    "pages/mine/minePresentation/selfPresentationRule/selfPresentationRule",
+    "pages/mine/minePresentation/managePresentationRule/managePresentationRule",
+    "pages/propaganda/vipIntroduce/vipIntroduce"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "365顾问宝",
+    "navigationBarTitleText": "省税一哥",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#000",
-    "selectedColor": "blue",
+    "selectedColor": "#F56A32",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/evaluating/evaluating",
-        "text": "评测"
+        "text": "首页",
+        "iconPath": "img/tab-home.png",
+        "selectedIconPath": "img/tab-home-click.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "img/tab-mine.png",
+        "selectedIconPath": "img/tab-mine-click.png"
       }
     ]
   },
   "usingComponents": {
     "alert": "./pages/alert/alert"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

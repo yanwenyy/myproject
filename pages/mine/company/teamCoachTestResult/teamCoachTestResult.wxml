@@ -1,0 +1,49 @@
+<!--团队辅导测试结果页pages/mine/company/teamCoachTestResult/teamCoachTestResult.wxml-->
+<view class="container">
+    <view class="testCard-head box-sizing">
+        <image class="testCard-head-bg" src="../../../../img/testCard-head.png" mode="scaleToFill"></image>
+        <view class="testCard-head-msg box-sizing">
+            <view class="testCard-head-msg-name">
+                <view class="inline-block">{{userInfo.title}}</view>
+                <view wx:if="{{userInfo.againExam}}" class="inline-block testCard-go-repair">
+                  去补考<image src="../../../../img/testCard-go-bk.png"></image>
+                </view>
+            </view>
+            <view class="testCard-head-footer">
+                <view class="inline-block testCard-head-msg-num">
+                    <view class="inline-block">
+                        <view>问题</view>
+                        <view class="testCard-head-num-list">{{userInfo.quNum}}</view>
+                    </view>
+                    <view class="inline-block">
+                        <view>正确</view>
+                        <view class="testCard-head-num-list">{{userInfo.rigthNum}}</view>
+                    </view>
+                    <view class="inline-block">
+                        <view>错误</view>
+                        <view class="testCard-head-num-list">{{userInfo.ansNum - userInfo.rigthNum}}</view>
+                    </view>
+                    <view class="inline-block">
+                        <view>未答</view>
+                        <view class="testCard-head-num-list">{{userInfo.quNum- userInfo.ansNum}}</view>
+                    </view>
+                </view>
+                <view class="inline-block testCard-right-probability">
+                    <view class="orange">{{userInfo.rightPercent}}%</view>
+                    <view>正确率</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:for="{{list}}" wx:key="qus" data-id="{{item.id}}" class="coach-model box-sizing">
+      <view class="testCard-list-name">
+        {{item.title}}
+      </view>
+      <view class="testCard-list-num">
+        <view class="inline-block" data-id="{{item.id}}" bindtap='goTestCard'>
+          <view wx:for="{{item.qus}}" data-id="{{item.quId}}" class="inline-block {{item.rigwron_status==1?'wrong':(item.rigwron_status==0?'right':'')}}">{{index+1}}</view>
+        </view>
+        <image src="../../../../img/testCard-more.png" mode="scaleToFill" class="testCard-list-num-btn"></image>
+      </view>
+    </view>
+</view>

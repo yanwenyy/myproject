@@ -1,0 +1,120 @@
+<!--政策解读pages/mine/mineCoach/unscramble/unscramble.wxml-->
+<view class="unscramble-body">
+  <view class="unscramble-head box-sizing">
+    <view class="unscramble-head-title">{{yw.title}}</view>
+    <view class="unscramble-head-source">{{yw.fileNum}}</view>
+    <view>发布时间：{{yw.officialReleaseDate}}</view>
+  </view>
+  <view class="unscramble-msg">
+    <scroll-view scroll-x="true" class="unscramble-msg-tab">
+      <view bindtap='tabClick' class="inline-block unscramble-tab-li {{tabMsg=='原文'?'unscramble-tab-li-act':''}}" data-value="原文">原文</view>
+      <view wx:if="{{type!=2}}" bindtap='tabClick' class="inline-block unscramble-tab-li {{tabMsg=='逐条解读'?'unscramble-tab-li-act':''}}" data-value="逐条解读">逐条解读</view>
+      <view wx:if="{{type!=2}}" bindtap='tabClick' class="inline-block unscramble-tab-li {{tabMsg=='延伸解读'?'unscramble-tab-li-act':''}}" data-value="延伸解读">延伸解读</view>
+      <view wx:if="{{type!=2}}" bindtap='tabClick' class="inline-block unscramble-tab-li {{tabMsg=='对比解读'?'unscramble-tab-li-act':''}}" data-value="对比解读">对比解读</view>
+      <view wx:if="{{type!=2}}" bindtap='tabClick' class="inline-block unscramble-tab-li {{tabMsg=='官方解读'?'unscramble-tab-li-act':''}}" data-value="官方解读">官方解读</view>
+    </scroll-view>
+    <view wx:if="{{tabMsg=='原文'}}" class="unscramble-msg-body">
+      <view style="word-break:break-all" class="unscramble-yw">
+        <rich-text nodes="{{yw.content}}" ></rich-text>
+      </view>
+      <view wx:if="{{yw.annexs!=''}}" class="unscramble-msg-enclosure box-sizing">
+        <view class="unscramble-msg-enclosure-title">
+          小程序暂不支持下载附件
+        </view>
+        <view class="unscramble-msg-enclosure-li" wx:for="{{yw.annexs}}" wx:key="index">
+          <image src="../../../../img/enclosure-img.png" mode="scaleToFill"></image>
+          <view class="inline-block" data-id="{{item.id}}">{{item.fileRealName}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{tabMsg=='逐条解读'}}" class="unscramble-msg-body">
+      <view wx:if="{{zjjd.content!=''&&zjjd.content!=null}}" class="zjjd-title">
+        政策背景
+      </view>
+      <view wx:if="{{zjjd.content!=''&&zjjd.content!=null}}" class="zjjd-model zjjd-blue box-sizing">
+        <view style=" overflow-x: auto;">
+            <rich-text nodes="{{zjjd.content}}" ></rich-text>
+        </view>
+      </view>
+      <view wx:for="{{zjjd.parts}}" wx:key="index" class="zjjd-list">
+        <view class="zjjd-list-title">
+          PART {{index+1}}
+          <view class="zjjd-list-title-line"></view>
+        </view>
+        <view class="zjjd-model zjjd-red box-sizing">
+          <view class="zjjd-model-title zjjd-red orange">原文</view>
+          <view style=" overflow-x: auto;">
+            <rich-text nodes=" {{item.partContent||''}}" ></rich-text>
+          </view>
+        </view>
+        <view class="zjjd-model zjjd-green box-sizing">
+          <view class="zjjd-model-title zjjd-green green">解读</view>
+          <view  style=" overflow-x: auto;">
+            <rich-text nodes="  {{item.resolve||''}}" ></rich-text>
+          </view>
+        </view>
+        <view wx:if="{{item.partVoices!=''}}" class="zjjd-list-title-two">【语音解读】</view>
+        <ccaud wx:for="{{item.partVoices}}" wx:key="index" vid='{{item.realName}}' siteid='A0123BC413D6FBAE' vc='' custom_id='' show="radio" title="{{item.title}}"/>
+        <view wx:if="{{item.partVideos!=''}}" class="zjjd-list-title-two">【视频解读】</view>
+        <ccvod wx:for="{{item.partVideos}}" wx:key="index" vid='{{item.vid}}' siteid='A0123BC413D6FBAE' vc='' custom_id='' videoPoster="{{'http://'+item.cover}}"/>
+        
+      
+      </view>
+    </view>
+    <view wx:if="{{tabMsg=='延伸解读'}}" class="unscramble-msg-body">
+      <view class="unscramble-sdjd-list" wx:for="{{sdjd}}" wx:key="index">
+        <view wx:if="{{false}}" class="unscramble-sdjd-list-title">房产税：</view>
+        <view class="unscramble-sdjd-list-msg">
+          <rich-text nodes="{{item.content}}" ></rich-text>
+        </view>
+        <view class="unscramble-sdjd-list-xgzc box-sizing" wx:for="{{item.policyActions}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap="goRelative">
+          <view class="unscramble-sdjd-list-xgzc-title">
+            {{item.title}}
+          </view>
+          <view class="unscramble-sdjd-list-xgzc-filenum">
+            {{item.fileNum}}
+          </view>
+          <view class="unscramble-sdjd-list-xgzc-btn orange">查看政策</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{tabMsg=='对比解读'}}" class="unscramble-msg-body">
+      <view class="unscramble-sdjd-list" wx:for="{{dbjd}}" wx:key="index">
+        <view wx:if="{{false}}" class="unscramble-sdjd-list-title">房产税：</view>
+        <view class="unscramble-sdjd-list-msg">
+          <rich-text nodes="{{item.content}}" ></rich-text>
+        </view>
+        <view class="unscramble-sdjd-list-xgzc box-sizing" wx:for="{{item.policyActions}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap="goRelative">
+          <view class="unscramble-sdjd-list-xgzc-title">
+            {{item.title}}
+          </view>
+          <view class="unscramble-sdjd-list-xgzc-filenum">
+            {{item.fileNum}}
+          </view>
+          <view class="unscramble-sdjd-list-xgzc-btn orange">查看政策</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{tabMsg=='官方解读'}}" class="unscramble-msg-body">
+      <view class="unscramble-sdjd-list" wx:for="{{gfjd}}" wx:key="index">
+        <view wx:if="{{false}}" class="unscramble-sdjd-list-title">房产税：</view>
+        <view class="unscramble-sdjd-list-msg">
+          <rich-text nodes="{{item.content}}" ></rich-text>
+        </view>
+        <view class="unscramble-sdjd-list-xgzc box-sizing" wx:for="{{item.policyActions}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap="goRelative">
+          <view class="unscramble-sdjd-list-xgzc-title">
+            {{item.title}}
+          </view>
+          <view class="unscramble-sdjd-list-xgzc-filenum">
+            {{item.fileNum}}
+          </view>
+          <view class="unscramble-sdjd-list-xgzc-btn orange">查看政策</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <cover-view class="unscramble-btn box-sizing" wx:if="{{!source}}">
+    <button bindtap="goTest" class="unscramble-btn-btn unscramble-btn-test">测评</button>
+    <button wx:if="{{(userInfo.category==1&&userInfo.role==1)||userInfo.isTryVip==1}}" bindtap='goMineAssessment' class="unscramble-btn-btn unscramble-btn-assessment">报告</button>
+  </cover-view>
+</view> 

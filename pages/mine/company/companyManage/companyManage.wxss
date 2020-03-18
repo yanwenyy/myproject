@@ -1,0 +1,8 @@
+/* pages/mine/company/companyManage/companyManage.wxss */
+@import "../../../propaganda/editMsg/editMsg.wxss";
+@import "../../mine/mineMsg/mineMsg.wxss";
+.companyManage-title{
+  font-size:34rpx;
+  font-weight: bold;
+  margin-bottom: 37rpx;
+}

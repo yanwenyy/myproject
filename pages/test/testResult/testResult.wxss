@@ -1,0 +1,6 @@
+/* pages/test/testResult/testResult.wxss */
+@import "../wrontTest/wrontTest.wxss";
+.active{
+  background: rgba(254,244,240,1)!important;
+  border: 1px solid rgba(251,159,122,1)!important;
+}

@@ -1,0 +1,20 @@
+<!--团队辅导pages/mine/company/teamCoach/teamCoach.wxml-->
+<view class="container">
+    <view class="teamCoach-body coach-model box-sizing">
+        <view bindtap="goDetail" class="teamCoach-list" wx:for="{{list}}" wx:key="index" data-date="{{item.policyDate}}" data-id="{{item.id}}">
+            <view class="teamCoach-list-msg">
+                <view class="inline-block">
+                  <view class="inline-block teamCoach-dot"></view>
+                  <text>{{item.policyDate}}  团队辅导成绩</text>
+                </view>
+                <view class="inline-block teamCoach-go">
+                    <text>查看</text>
+                    <image class="teamCoach-go-img" src="../../../../img/selfPresentation-go.png" mode="scaleToFill"></image>
+                </view>
+            </view> 
+            <view class="teamCoach-list-img box-sizing">
+                <image wx:for="{{item.evluationUsers}}" wx:if="{{item.uuid!=userInfo.uuid}}" wx:key="*this" src="{{item.headImg}}" mode="scaleToFill" class="teamCoach-user-img"></image>
+            </view>
+        </view>
+    </view>
+</view>

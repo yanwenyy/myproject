@@ -1,0 +1,3 @@
+/* pages/share/acceptShare/acceptShare.wxss */
+@import "../../propaganda/editMsg/editMsg.wxss";
+@import "../../mine/mine/mineMsg/mineMsg.wxss"

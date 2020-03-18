@@ -1,0 +1,118 @@
+/* pages/mine/minePresentation/selfPresentationDetail/selfPresentationDetail.wxss */
+@import "../../mineCoach/assessmentResult/assessmentResult.wxss";
+@import "../../mineCoach/coachDetail/coachDetail.wxss";
+@import '../../../share/inviteStaff/inviteStaff.wxss';
+.coach-model {
+  padding-bottom:0;
+}
+.assessmentResult-body{
+  padding-top:49rpx;
+}
+.selfPresentationDetail-head{
+  width: 100%;
+  min-height: 182rpx;
+  height:auto;
+  position: relative;
+  margin-bottom: 41rpx;
+  color:#fff;
+}
+.selfPresentationDetail-head-img,.selfPresentationDetail-head-msg{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.selfPresentationDetail-head-msg{
+  padding:46rpx 36rpx;
+}
+.selfPresentationDetail-head-company{
+  height:247rpx;
+}
+.selfPresentationDetail-user-img{
+  width: 64rpx;
+  height: 64rpx;
+  vertical-align: middle;
+  background: #eee;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.selfPresentationDetail-h-manage-footer{
+  font-size:26rpx;
+}
+.selfPresentationDetail-h-m-date{
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
+  vertical-align: bottom;
+}
+.selfPresentationDetail-h-m-date>text:nth-child(1){
+  font-size:36rpx;
+  font-weight: bold;
+  margin-top: -10rpx;
+}
+.selfPresentationDetail-h-m-title{
+  font-size:28rpx;
+  margin-bottom: 20rpx;
+}
+.selfPresentationDetail-h-m-title>image{
+  width:64rpx;
+  height:64rpx;
+  border-radius: 50%;
+  background: #eee;
+  margin-right: 18rpx;
+  vertical-align: middle;
+}
+.selfPresentationDetail-notice{
+  font-size:30rpx;
+  margin-top: 31rpx;
+}
+.edit-pg{
+  font-size:28rpx;
+  float: right;
+  font-weight:400;
+}
+.selfPresentationDetail-share{
+  width:72rpx;
+  height:72rpx;
+  position: fixed;
+  bottom:77rpx;
+  right:28rpx;
+}
+.selfPresentationDetail-share>image{
+  width: 100%;
+  height:100%;
+}
+/*  */
+.selfPresentationDetail-body>.coach-model{
+  margin-bottom: 0;
+  border-bottom:none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.assessmentResult-body{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.assessmentResult-footer{
+  display: flex;
+  justify-content: space-between;
+  color:#394551;
+  font-size: 28rpx;
+  border-top:1px solid #eee;
+  padding-top:47rpx;
+}
+.assessmentResult-footer-line{
+  width: 3rpx;
+  height:34rpx;
+  background: #E5E5E5;
+  margin: 0 74rpx;
+}
+.assessmentResult-footer-img{
+  width: 26rpx;
+  height:26rpx;
+  vertical-align: middle;
+  margin: -5rpx 12rpx 0 0;
+}
+/*  */

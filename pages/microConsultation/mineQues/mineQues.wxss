@@ -1,0 +1,15 @@
+/* pages/microConsultation/mineQues/mineQues.wxss */
+.mineQues-li{
+  padding:41rpx 49rpx;
+  margin-bottom: 27rpx;
+}
+.mineQues-li-msg{
+  font-size:30rpx;
+  margin-bottom: 27rpx;
+}
+.mineQues-li-footer{
+  font-size:26rpx;
+  color:#999;
+  display: flex;
+  justify-content: space-between;
+}

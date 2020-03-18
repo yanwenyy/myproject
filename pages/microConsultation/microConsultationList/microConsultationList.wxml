@@ -1,0 +1,39 @@
+<!--微咨询列表pages/microConsultation/microConsultationList/microConsultationList.wxml-->
+<view class="microConsultationList-body">
+  <view class="microConsultationList-head">
+    <image class="microConsultationList-head-img" src="../../../img/microConsultationList-head.png" mode="scaleToFill"></image>
+    <view class="microConsultationList-head-msg">
+      <view wx:if="{{time>0&&userInfo.category==1&&userInfo.ifMember==1}}" class="microConsultationList-head-msg-num">
+        剩余提问: {{time}}次
+      </view>
+      <view wx:if="{{time<1&&userInfo.category==1&&userInfo.ifMember==1}}"  class="microConsultationList-head-msg-num m-h-m-numOut">
+        剩余提问: 0次
+        <!-- <text class='m-h-m-numOut-msg'>会员已失效</text> -->
+      </view>
+      <view wx:if="{{userInfo.category==1&&userInfo.ifMember!=1}}" class="microConsultationList-head-msg-num m-h-m-numOut">
+        <text class='m-h-m-numOut-msg'>会员已失效</text>
+      </view>
+      <view class="ques-rule" bindtap="goRule"></view>
+    </view>
+  </view>
+  <view wx:if="{{list!=''}}" class="microConsultationList-list box-sizing">
+    <view wx:for="{{list}}" wx:key="index" bindtap="goDetail"  data-id="{{item.uuid}}" data-uuid="{{item.phoneNumber}}" class="microConsultationList-li coach-model box-sizing">
+      <view class="microConsultationList-li-head inline-block">
+        <image class="microConsultationList-li-img" src="{{item.thirdUserHeadImg}}" mode="scaleToFill"></image>
+        <view class="microConsultationList-li-head-mine" wx:if="{{item.isOwn==0}}">我</view>
+      </view>
+      <view class="inline-block microConsultationList-li-msg box-sizing">
+        <view class="microConsultationList-li-name">{{item.thirdUserName}}</view>
+        <view class="microConsultationList-li-ques">{{item.content}}</view>
+        <view class="microConsultationList-li-date">{{item.date}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="no-msg"  wx:if="{{list==''}}">
+    <image src="../../../img/no-tw.png" mode="scaleToFill"></image>
+    <view>还没有提问过呢！ </view>
+  </view>
+  <view class="go-ques" bindtap="goQues" wx:if="{{userInfo.category==1&&userInfo.ifMember==1}}">
+    <image src="../../../img/go-ques.png" mode="scaleToFill"></image>
+  </view>
+</view>

@@ -1,5 +1,6 @@
 // pages/test/test.js
-const query = wx.createSelectorQuery()
+const query = wx.createSelectorQuery();
+const app=getApp();
 Page({
 
   /**
@@ -46,17 +47,38 @@ Page({
                   content: 'F.其他'
                 }]
     }],
-    showNum:0
+    showNum:1,
+    id:''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (wx.getStorageSync('test_fail')){
+    var that=this;
+    this.setData({
+      id:options.id
+    })
+    if (wx.getStorageSync('test_fail') && wx.getStorageSync('test_id') == options.id){
       var test_fail = JSON.parse(wx.getStorageSync('test_fail'));
         this.setData({
           quest:test_fail
         })
+    }else{
+      app.ajax("/applet/policy/qu", {
+        "id": this.data.id
+      }, function (res) {
+        console.log(res.data.data);
+        var datas = res.data.data, i, j;
+        for (i in datas) {
+          var val = datas[i].answers;
+          for (j in val) {
+            val[j].code = app.code(j)
+          }
+        }
+        that.setData({
+          quest: datas
+        })
+      })
     }
   },
 
@@ -94,7 +116,8 @@ Page({
       if (change_v.result) {
         once_test=true;
       } else if (!change_v.result && once_test==true){
-        wx.setStorageSync('test_fail', JSON.stringify(this.data.quest))
+        wx.setStorageSync('test_fail', JSON.stringify(this.data.quest));
+        wx.setStorageSync('test_id', this.data.id);
       }
     }
   },
@@ -124,7 +147,7 @@ Page({
     let outidx = e.currentTarget.dataset.outidx;
     let idx = e.currentTarget.dataset.idx;
     let question = this.data.quest[outidx];
-    if (question.type == 1) {
+    if (question.type == 1 || question.type == 3) {
       //单选
       for (let item of question.answers) {
         item.selected = false;
@@ -153,17 +176,17 @@ Page({
     }
   },
   //上一题
-  preQues:function(){
-    if (this.data.showNum>0){
+  preQues: function () {
+    if (this.data.showNum > 1) {
       this.setData({
-        showNum: this.data.showNum-1
+        showNum: this.data.showNum - 1
       })
     }
   },
   //下一题
   nextQues: function () {
-    var total=this.data.quest.length-1;
-    if (this.data.showNum <total){
+    var total = this.data.quest.length;
+    if (this.data.showNum < total) {
       this.setData({
         showNum: this.data.showNum + 1
       })
@@ -171,38 +194,66 @@ Page({
   },
   //提交答案
   subResult:function(){
-    var i=0,
-        len=this.data.quest.length,
-        result=[];
-    for(;i<len;i++){
-      var change_v = this.data.quest[i];
-      if (change_v.result){
-       //result[change_v.id] = change_v.result;
-        var val={
-          "id": change_v.id,
-          "result": change_v.result
-        };
-        result.push(val);
-      }else{
-        wx.showModal({
-          title: '提示',
-          content: '请完善答案',
-          success(res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            } else if (res.cancel) {
-              console.log('用户点击取消')
+    var that=this;
+    wx.showModal({
+      title: '提示',
+      content: '您确认提交吗？提交后答题不可修改哦~',
+      success(res) {
+        if (res.confirm) {
+          var i = 0,
+            len = that.data.quest.length,
+            result = [],
+            datas = that.data.quest;
+          for (; i < len; i++) {
+            var change_v = that.data.quest[i];
+            if (change_v.result) {
+              //result[change_v.id] = change_v.result;
+              var val = {
+                "id": change_v.id,
+                "result": change_v.result
+              };
+              result.push(val);
+            } else {
+              wx.showModal({
+                title: '提示',
+                content: '请完善答案',
+                success(res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              });
+              return false;
             }
           }
-        });
-        return false;
+          console.log(datas)
+          app.ajax("/applet/normal/submit/answer", datas, function (res) {
+            console.log(res);
+            if (res.data.code == 10000) {
+              wx.showToast({
+                title: '提交成功',
+                icon: 'success',
+                duration: 2000
+              });
+              wx.removeStorage("test_fail");
+              wx.removeStorage("test_id");
+              wx.navigateBack()
+            } else {
+              wx.showToast({
+                title: res.msg,
+                icon: 'success',
+                duration: 2000
+              });
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
-    }
-    wx.showToast({
-      title: '提交成功',
-      icon: 'success',
-      duration: 2000
-    });
-    wx.clearStorage("test_fail")
+    })
+   
+    
   }
 })

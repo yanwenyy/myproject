@@ -1,0 +1,78 @@
+<!--我的辅导pages/mine/mineCoach/mineCoach.wxml-->
+<view>
+    <view class="mineCoach-head">
+        <image class="mineCoach-head-bg" src="../../../img/mineCoach-bg.png" mode="scaleToFill"></image>
+        <view class="mineCoach-head-msg">
+            <view class="mineCoach-head-msg-model box-sizing">
+                <view class="mineCoach-h-msg-group">
+                    <image class="mineCoach-h-img" src="{{userInfo.headImg}}" mode="scaleToFill"></image>
+                    <view class="inline-block mineCoach-h-name">{{userInfo.nickname}}</view>
+                    <view class="inline-block mineCoach-h-dj" wx:if="{{userInfo.grade!=''}}">
+                        <image class="mineCoach-h-dj-icon" src="../../../img/mineCoach-good.png" mode="scaleToFill"></image>
+                        <text>{{userInfo.grade}}</text>
+                        <image class="mineCoach-h-dj-what" src="../../../img/mineCoach-what.png" mode="scaleToFill"></image>
+                    </view>
+                </view>
+                <view class="mineCoach-h-msg-date">
+                辅导周期：{{userInfo.coachStartTime}}-{{userInfo.coachEndTime}}
+                <view wx:if="{{tryNum!=''}}" class="inline-block orange tryNum-date">(试用{{tryNum}}天)</view>
+                </view>
+                <view class="mineCoach-h-msg-process">
+                    辅导进度：<progress percent='{{userInfo.schedule/12*100}}' border-radius="4rpx" activeColor="#FA743E" class="inline-block"></progress> 
+                    <text class="orange">{{userInfo.schedule}}</text>/12</view>
+            </view>
+        </view>
+    </view>
+    <view class="container">
+      <view class="mineCoach-ul">
+          <view bindtap='goCoachDetail' class="mineCoach-li" wx:for="{{policyNums}}" wx:key="index" data-id="{{item.id}}">
+              <view class="mineCoach-li-msg">
+                   <image class="mineCoach-li-bg" src="../../../img/coachDetail-head.png" mode="scaleToFill"></image>
+                   <view class="mineCoach-li-msg-model box-sizing">
+                      <view class="mineCoach-li-msg-model-name">{{item.title}}</view>
+                      <view wx:if="{{(item.status!=1&&item.status!=4)&&(item.status==2&&item.examNum-item.aledNum>0)}}" class="mineCoach-li-msg-model-date">考试结束 ：
+                          <text class=''>{{item.policyDate_change.day}}</text>天
+                          <text class=''>{{item.policyDate_change.hou}}</text>:
+                          <text class=''>{{item.policyDate_change.min}}</text>:
+                          <text class=''>{{item.policyDate_change.sec}}</text>
+                      </view>
+                      <view wx:if="{{item.status==2&&item.examNum - item.aledNum>0}}"  class="mineCoach-li-msg-model-status inline-block">
+                        测试未完成
+                      </view>
+                      <view wx:if="{{item.status==1}}"  class="mineCoach-li-msg-model-status inline-block">
+                        更新中
+                      </view>
+                       <view catchtap='goResitTest' data-date="{{item.packDate}}" data-id="{{item.id}}" wx:if="{{item.againExam}}"  class="mineCoach-li-msg-model-status go-bk inline-block">
+                          去补考 <image src="../../../img/testCard-go-bk.png"></image>
+                       </view>
+
+                      <view wx:if="{{item.status!=1}}"  class="mineCoach-li-right-percent">
+                          <view class="mineCoach-li-right-percent-num">{{item.rightPercent}}%</view>
+                          <view>正确率</view>
+                      </view> 
+                   </view>
+              </view>
+              <view class="mineCoach-li-footer box-sizing">
+                  <view class="inline-block mineCoach-li-footer-num">
+                    <text>政策 {{item.sumPunshNum}}</text>
+                    <text class="mineCoach-li-footer-line"></text>
+                    <text>待打卡 {{item.sumPunshNum - item.punshNum}}</text>
+                    <text class="mineCoach-li-footer-line"></text>
+                    <text>待测试 {{item.examNum - item.aledNum}}</text>
+                  </view>
+                  <view wx:if="{{item.status>2||(item.status==2&&item.examNum - item.aledNum<=0)}}" class="inline-block">
+                      <view wx:if="{{item.rightPercent<70}}" class="inline-block mineCoach-li-footer-grade">
+                          成绩：不合格
+                      </view>
+                      <view wx:if="{{item.rightPercent>90}}" class="inline-block mineCoach-li-footer-grade orange">
+                          成绩：优秀
+                      </view>
+                      <view wx:if="{{item.rightPercent>70&&item.rightPercent<90}}" class="inline-block mineCoach-li-footer-grade">
+                          成绩：合格
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </view>
+    </view>
+</view>

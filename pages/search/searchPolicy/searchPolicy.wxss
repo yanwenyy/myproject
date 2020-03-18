@@ -1,0 +1,65 @@
+/* pages/search/searchPolicy/searchPolicy.wxss */
+.searchPolicy-input{
+  width: 100%;
+  height:74rpx;
+  line-height:74rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  font-size:28rpx;
+  color:#aaa;
+}
+.searchPolicy-img{
+  width:32rpx;
+  height:32rpx;
+  vertical-align: middle;
+  margin: 0 12rpx 0 23rpx;
+}
+.searchPolicy-li-title{
+  font-size:34rpx;
+  font-weight: bold;
+  margin: 53rpx 0 37rpx 0;
+}
+/* 政策列表开始 */
+.coach-model{
+  margin-top: 32rpx;
+  padding:45rpx 49rpx;
+}
+.coachDetail-zc-head{
+  font-size: 28rpx;
+  color:#666;
+  margin-bottom: 48rpx;
+}
+.coachDetail-zc-left{
+  width: 93rpx;
+  height:93rpx;
+  vertical-align: top;
+  margin-right: 25rpx;
+}
+.coachDetail-zc-right-name{
+  font-size: 32rpx;
+  color:#333;
+  font-weight:bold;
+  margin-bottom: 26rpx;
+}
+.coachDetail-zc-right-class>text{
+  font-size:24rpx;
+  color:#798091;
+  height:41rpx;
+  line-height: 41rpx;
+  padding:0 16rpx;
+  background:rgba(244,248,250,1);
+  border-radius:6rpx;
+  margin:0  17rpx 10rpx 0;
+}
+.coachDetail-zc-right{
+  vertical-align: top;
+  width: 80%;
+}
+.coachDetail-zc-right-date{
+  font-size: 26rpx;
+  color:#999;
+  margin-bottom: 17rpx;
+  padding-bottom:33rpx;
+  border-bottom:1px solid #eee;
+}
+/* 政策列表结束 */

@@ -1,0 +1,35 @@
+<!--我的报告个人版pages/mine/minePresentation/selfPresentation/selfPresentation.wxml-->
+<view class="container">
+ <swiper class="index-swiper selfPresentation-banner" autoplay="true" interval="2000" indicator-dots="{{background.length>1}}" circular="true" indicator-active-color="#fff">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+        <image bindtap="goRule" class="index-swiper-img" src="{{item.imgUrl?'http://'+item.imgUrl:''}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- <image src="" mode="scaleToFill" class="selfPresentation-banner"></image> -->
+  <view class="selfPresentation-body box-sizing" wx:if="{{list!=''&&list!=null}}">
+    <view class="selfPresentation-list" wx:for="{{list}}" wx:key="index" bindtap="goDetail" data-id="{{item.id}}" data-num="{{list.length-index}}" data-date="{{item.policyDate}}">
+      <view class="inline-block selfPresentation-list-dot"></view>
+      <view class="inline-block selfPresentation-list-msg">
+        <view class="selfPresentation-list-date">
+          <text>{{item.policyDate}} 第{{list.length-index}}期   </text>
+          <text class="orange" wx:if="{{item.policyDate_change.day!='00'&&item.policyDate_change.hou!='00'&&item.policyDate_change.min!='00'&&item.policyDate_change.sec!='00'}}">
+            距离发送：<text class=''>{{item.policyDate_change.day}}</text>天<text class=''>{{item.policyDate_change.hou}}</text>:<text class=''>{{item.policyDate_change.min}}</text>:<text class=''>{{item.policyDate_change.sec}}</text>
+          </text>
+        </view>
+        <view class="selfPresentation-list-title">
+          <view class="inline-block">财税政策变更评估报告</view>
+          <view class="inline-block selfPresentation-list-btn">
+            查看
+            <image src="../../../../img/selfPresentation-go.png" mode="scaleToFill"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-msg" wx:if="{{list==''||list==null}}">
+    <image src="../../../../img/no-pg.png" mode="scaleToFill"></image>
+    <view>暂无评估</view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<!--当前政策答题卡pages/test/currentTestCard/currentTestCard.wxml-->
+<view>
+  <view class="currentTestCard-head">
+    <image class="currentTestCard-bg" src="../../../img/currentTestCard-bg.png" mode="scaleToFill"></image>
+    <view class="currentTestCard-head-msg">
+      <view class="currentTestCard-pie">
+        <canvas-ring id="canvasRing" canvasWidth="95" percent="{{msg.rightPercent}}" value="{{msg.rightPercent}}" maxValue="100" title="正确率" lineColor="#FA743E"></canvas-ring>
+      </view>
+      <view class="currentTestCard-head-footer">
+        <view class="inline-block">共{{msg.sumQuNum}}题</view>
+        <view class="inline-block">
+          <text class="green-dot"></text>正确 {{msg.rightNum}}</view>
+        <view class="inline-block">
+          <text class="orange-dot"></text>错误 {{msg.errorNum}}</view>
+        <view class="inline-block">
+          <text class="gray-dot"></text>未答 {{msg.noNum}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="currentTestCard-body box-sizing">
+    <view class="currentTestCard-body-title">
+      <view class="inline-block">答题卡</view>
+      <view class="inline-block orange"  bindtap='goTestResult'>
+          答题结果
+          <image src="../../../img/orange-go.png" mode="scaleToFill" class="currentTestCard-body-title-go"></image>
+      </view>
+    </view>
+    <view wx:for="{{msg.lists}}" class="currentTestCard-num inline-block {{item.rigwron_status==0?'green-dot':(item.rigwron_status==1?'orange-dot':'')}}">{{index+1}}         </view>
+  </view>
+</view>

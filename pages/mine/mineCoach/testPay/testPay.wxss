@@ -1,0 +1,55 @@
+/* pages/mine/mineCoach/testPay/testPay.wxss */
+.testPay-body{
+  padding:37rpx 46rpx;
+}
+.testPay-head{
+  width:100%;
+  height:320rpx;
+  position: relative;
+}
+.testPay-head-img,.testPay-head-msg{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.testPay-head-msg{
+  color:#fff;
+  font-size: 36rpx;
+}
+.testPay-head-msg>view{
+  position: absolute;
+  bottom:41rpx;
+  right:40rpx;
+  text-align: right;
+}
+.testPay-head-msg>view>text{
+  font-size: 26rpx;
+  margin: 0 9rpx 10rpx 0;
+}
+.testPay-month{
+  font-size:32rpx;
+  color:#999;
+  margin-top: 57rpx;
+}
+.testPay-month-title{
+  color:#333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.testPay-btn{
+  position: absolute;
+  bottom:60rpx;
+  width: 660rpx;
+}
+.testPay-btn>button{
+  background: #F56A32;
+  color:#fff;
+  height:88rpx;
+  font-size: 32rpx;
+  border:none;
+}
+.testPay-btn>button>text{
+  font-size: 26rpx;
+}

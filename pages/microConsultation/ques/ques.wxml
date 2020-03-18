@@ -1,0 +1,47 @@
+<!--提问页面pages/microConsultation/ques/ques.wxml-->
+<view class="ques-body box-sizing">
+  <textarea maxlength="-1" bindinput="contentInput" class="ques-textarea box-sizing" placeholder="请输入您的问题,需详细描述您的问题，如：您的企业状况、问题描述、问题背景等."></textarea> 
+  <view class="ques-img">
+    <view class="ques-img-title">添加图片({{imgList.length}}/3)</view>
+    <view class="ques-img-list">
+      <view class="inline-block ques-img-show-view" wx:for="{{imgList}}" wx:key="index" >
+        <image bindtap="imgLook" data-src="{{item}}" src="{{'data:image/png;base64,'+item}}" mode="scaleToFill" class="ques-img-show"></image>
+        <view class="del-img" bindtap="delImg" data-src="{{item}}">X</view>
+      </view>
+      <image wx:if="{{imgList.length<3}}" bindtap="chooseImg" src="../../../img/ques-plus.png"  mode="scaleToFill" class="ques-img-show"></image>
+    </view>
+  </view>
+  <view class="ques-hy">
+      <view class="ques-hy-msg">
+          <image class="ques-hy-label" mode="scaleToFill" src="../../../img/ques-label.png"></image>
+          涉及行业
+      </view> 
+      <view bindtap="hyClick">
+        <text wx:if="{{industrySelName==''}}">请选择</text>
+        <text wx:if="{{industrySelName!=''}}">{{industrySelName}}</text>
+        <image class="ques-hy-go" mode="scaleToFill" src="../../../img/testCard-more.png"></image>
+      </view>
+  </view>
+  <view class="sub-ques box-sizing" bindtap="subMsg">
+    <button>发布</button>
+  </view>
+  <view wx:if="{{shadow}}" class="shadow">
+    <view class="shadow-body">
+      <view class="shadow-body-title">
+        所在行业
+        <image bindtap="closeShadow" class="shadow-close" src="../../../img/shadow-close.png" mode="scaleToFill"></image>
+      </view>
+      <view class="shadow-body-ul box-sizing">
+        <radio-group bindchange="checkboxChange">
+          <label class="checkbox shadow-body-li" wx:for="{{industry}}" data-name="{{item.name}}" bindtap="hyLabelClick" data-index="{{index}}">
+            <view class="inline-block shadow-body-li-view">{{item.name}}</view>
+            <radio value="{{item.name}}" checked="{{item.checked}}" />
+          </label>
+        </radio-group>
+      </view>
+      <view bindtap="hySub" class="sub-msg-hy box-sizing">
+        <button>保存</button>
+      </view>
+    </view>
+  </view>
+</view> 

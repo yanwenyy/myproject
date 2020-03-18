@@ -1,0 +1,2 @@
+<!--富文本demopages/richText/richText.wxml-->
+<rich-text nodes="{{nodes}}" bindtap="tap"></rich-text>

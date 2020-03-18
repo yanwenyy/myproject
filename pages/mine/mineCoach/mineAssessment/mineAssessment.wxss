@@ -1,0 +1,153 @@
+/* pages/mine/mineCoach/mineAssessment/mineAssessment.wxss */
+.mineAssessment-head{
+  /* padding:0 43rpx; */
+  text-align: center;
+  padding-top:29rpx;
+}
+.mineAssessment-head>image{
+  width: 697rpx;
+  height:211rpx;
+}
+.mineAssessment-head>.orange{
+    font-size: 40rpx;
+}
+.mineAssessment-body{
+  padding:44rpx 43rpx;
+}
+.mineAssessment-body-title{
+  font-size: 32rpx;
+  margin-bottom: 70rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.see-original{
+  font-size: 26rpx;
+  vertical-align: middle
+}
+.mineAssessment-body-choice>view{
+  height:106rpx;
+  line-height: 106rpx;
+  background:rgba(250,250,250,1);
+  border:1px solid rgba(238,238,238,1);
+  border-radius:12rpx;
+  padding:0 49rpx;
+  font-size: 30rpx;
+  color:#666;
+  box-sizing: border-box;
+  margin-bottom: 37rpx;
+}
+.mineAssessment-body-choice-act{
+  background:rgba(254,244,240,1)!important;
+  border:1px solid rgba(251,159,122,1)!important;
+}
+.mineAssessment-textarea>textarea{
+  width:100%;
+  height:381rpx;
+  background:rgba(250,250,250,1);
+  border:1px solid rgba(238,238,238,1);
+  border-radius:12rpx;
+  padding:34rpx 33rpx;
+  font-size:28rpx;
+  z-index: 0
+}
+.mineAssessment-three-star{
+  font-size:28rpx;
+  color:#666;
+  margin-bottom: 45rpx;
+}
+.mineAssessment-three-star>image{
+  width: 31rpx;
+  height:29rpx;
+  vertical-align: middle;
+  margin: 0 11rpx;
+}
+.mineAssessment-tree-checkbox{
+  margin-top: 25rpx;
+  font-size:26rpx;
+  color:#999;
+}
+.mineAssessment-tree-checkbox>checkbox .wx-checkbox-input{
+  width: 32rpx;
+  height:32rpx;
+  vertical-align: middle;
+  margin-bottom: 5rpx;
+}
+.mineAssessment-btn-group{
+  width:100%;
+  height:auto;
+  position: absolute;
+  bottom:114rpx;
+  left:0;
+}
+.mineAssessment-btn-index,.mineAssessment-btn-sub{
+  width: 660rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color:#fff;
+  background:rgba(245,106,50,1);
+  border-radius:12rpx;
+  margin: 0 auto;
+}
+.mineAssessment-btn-two{
+  width: 660rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.mineAssessment-btn-two>view{
+  width:313rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  background:#EEEEEE;
+  border-radius:12rpx;
+  color:#fff;
+  font-size:32rpx;
+  text-align: center;
+}
+.mineAssessment-btn-two>view:nth-child(2){
+  background: #F56A32;
+}
+.mineAssessment-btn-help{
+  width: 660rpx;
+  margin: 59rpx auto 0 auto;
+  height:132rpx;
+  background: #F7F7F7;
+  font-size: 24rpx;
+  color:#999;
+  padding:33rpx 0;
+  text-align: center;
+}
+.mineAssessment-btn-help-btn{
+  color:#44CD98;
+  margin-top: 10rpx;
+}
+.shadow-body{
+  padding:32rpx;
+  width:80%;
+  margin: 20% auto;
+  z-index: 9999999;
+}
+.shadow-title{
+  width: 100%;
+  position: relative;
+  font-size:36rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.shadow-close{
+  width:40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  position: absolute;
+  top:0;
+  right: 0;
+}
+.shadow-msg{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  margin-top: 30rpx;
+  height: 800rpx;
+  overflow: auto;
+}

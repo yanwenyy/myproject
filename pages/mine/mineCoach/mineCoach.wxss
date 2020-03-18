@@ -1,0 +1,155 @@
+/* pages/mine/mineCoach/mineCoach.wxss */
+.mineCoach-head{
+  width:100%;
+  height:330rpx;
+  position: relative;
+  background: #F4F7FD;
+}
+.mineCoach-head-bg{
+  width: 100%;
+  height:250rpx;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.mineCoach-head-msg{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.mineCoach-head-msg-model{
+  width: 690rpx;
+  height:291rpx;
+  margin: 39rpx auto 0 auto;
+  background: #fff;
+  border-radius:16rpx;
+  padding:41rpx 24rpx;
+}
+.mineCoach-h-img{
+  width: 90rpx;
+  height:90rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right:24rpx;
+}
+.mineCoach-h-name{
+  font-size:32rpx;
+  color:#333;
+  font-weight:bold;
+}
+.mineCoach-h-dj{
+  float: right;
+  color:#FEC43C;
+  font-size: 28rpx;
+  margin-top:18rpx;
+}
+.mineCoach-h-dj-icon{
+  width: 41rpx;
+  height:37rpx;
+  vertical-align: middle;
+}
+.mineCoach-h-dj-what{
+  width: 27rpx;
+  height:27rpx;
+  vertical-align: middle;
+  margin:0 0 7rpx 5rpx;
+}
+.mineCoach-h-msg-date{
+  font-size: 26rpx;
+  color:#999;
+  margin: 41rpx 0 26rpx 0;
+}
+.mineCoach-h-msg-process{
+  font-size: 26rpx;
+  color:#999;
+}
+.mineCoach-h-msg-process>progress{
+  width:295rpx;
+  height:8rpx;
+  vertical-align: middle;
+  margin: -5rpx 25rpx 0 0;
+}
+.mineCoach-li{
+  border-radius: 16rpx;
+  margin-bottom: 31rpx;
+  background: #fff;
+}
+.mineCoach-li-msg{
+  width: 100%;
+  height:246rpx;
+  position: relative;
+}
+.mineCoach-li-bg,.mineCoach-li-msg-model{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.mineCoach-li-msg-model{
+  padding:46rpx;
+  color:#fff;
+}
+.mineCoach-li-msg-model-name{
+  font-size: 34rpx;
+  font-weight:bold;
+  margin-bottom:14rpx;
+}
+.mineCoach-li-msg-model-date{
+  font-size: 24rpx;
+  margin-bottom: 28rpx;
+}
+.mineCoach-li-msg-model-status{
+  height:48rpx;
+  line-height: 48rpx;
+  padding:0 19rpx;
+  background:rgba(255,255,255,0.2);
+  font-size:24rpx;
+  border-radius:24rpx;
+}
+.mineCoach-li-msg-model-status>image{
+  width:19rpx;
+  height:19rpx;
+  vertical-align: middle;
+}
+.go-bk{
+  background:rgba(245,106,50,0.7);
+}
+.mineCoach-li-right-percent{
+  width: 130rpx;
+  height:130rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top:59rpx;
+  right:56rpx;
+  color:#F56A32;
+  font-size: 23rpx;
+}
+.mineCoach-li-right-percent-num{
+  font-size:32rpx;
+  margin-top:21rpx; 
+}
+.mineCoach-li-footer{
+  height:95rpx;
+  line-height: 95rpx;
+  padding:0 47rpx;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  color:#999;
+}
+.mineCoach-li-footer-line{
+  display: inline-block;
+  width:2rpx;
+  height:19rpx;
+  background:#ddd;
+  vertical-align: middle;
+  margin: 0 27rpx;
+}
+.tryNum-date{
+  font-size:26rpx;
+}

@@ -1,0 +1,28 @@
+<!--管理员规则pages/mine/minePresentation/managePresentationRule/managePresentationRule.wxml-->
+<view class="selfPresentationRule-body box-sizing">
+  <image style="margin-bottom:43rpx" src="../../../../img/managePresentationRule-head.png" mode="scaleToFill" class="selfPresentationRule-head"></image>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">1. 什么是《财税政策变更评估报告》？ </view>
+    <view class="selfPresentationRule-list-msg">
+      当最新财税政策发布后，您的员工需要填写该报告，汇报政策变更后可能对企业产生的影响及贯彻执行方案 
+    </view>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">2. 写评估报告的价值?  </view>
+    <view class="selfPresentationRule-list-msg">
+      可以让老板及时了解企业财税动态，实时监督财务人员对于财税政策的掌握程度。避免因掌握政策变动不及时而带来的涉税风险，并及时发现企业合理节税空间。
+    </view>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">3. 2个员工账户都可以汇报吗？</view>
+    <view class="selfPresentationRule-list-msg">
+      是的，您企业账户下的员工角色进行汇报后，您可以实时查看。
+    </view>
+  </view>
+  <view class="selfPresentationRule-list">
+    <view class="selfPresentationRule-title2">4. 为什么我没有看到汇报？</view>
+    <view class="selfPresentationRule-list-msg">
+      您的员工还没有进行填写。
+    </view>
+  </view>
+</view>

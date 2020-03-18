@@ -1,0 +1,31 @@
+<!--搜索结果页pages/search/searchPolicyList/searchPolicyList.wxml-->
+<view class="container">
+  <view class="searchPolicy-head box-sizing">
+    <view class="inline-block searchPolicy-input box-sizing">
+      <image src="../../../img/policy-search.png" mode="scaleToFill" class="searchPolicy-img"></image>
+      <input bindinput="searchInput" placeholder-style="color:#aaa" placeholder='请输入查找的政策'></input>
+    </view>
+    <view bindtap="searchClick" class="inline-block"> 搜索</view>
+  </view>
+  <view class="searchPolicy-ul" wx:if="{{list!=''&&list!=null}}">
+    <view bindtap='goUnscramble' class="coach-model box-sizing" wx:for="{{list}}" wx:key="index" bindtap="goUnscramble" data-id="{{item.id}}" data-type="{{item.type}}">
+      <view class="coachDetail-zc-head">
+        {{item.officialReleaseDate}}
+      </view>
+      <view>
+        <image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+        <view class="coachDetail-zc-right inline-block">
+          <view class="coachDetail-zc-right-name">{{item.title}}</view>
+          <view class="coachDetail-zc-right-date">{{item.fileNum}}</view>
+          <view class="coachDetail-zc-right-class">
+            <text wx:for="{{item.tags}}" wx:key="*this" wx:if="{{item!=''}}" class="inline-block">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-msg" wx:if="{{noContent&&(list==''||list==null)}}">
+    <image src="../../../img/no-ss.png" mode="scaleToFill"></image>
+    <view>暂无搜索结果</view>
+  </view>
+</view>

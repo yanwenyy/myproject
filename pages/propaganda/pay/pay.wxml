@@ -1,2 +1,44 @@
 <!--支付pages/propaganda/pay/pay.wxml-->
-<text>微信支付页面</text>
+<view class="pay-body">
+  <view class="pay-head">
+    <image class="pay-bg" src="../../../img/pay-bg.png" mode="scaleToFill"></image>
+    <view class="pay-msg box-sizing">
+      <view class="pay-msg-name">{{product.goodsName}}</view>
+      <view class="pay-msg-time">12期辅导
+        <text wx:if="{{company}}"></text>
+      </view>
+      <view class="pay-msg-money">共
+        <text>¥{{product.productType=='1'? product.price*company_num:product.price}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="pay-list pay-num" wx:if="{{company}}">
+    <view class="inline-block pay-title">{{name}}</view>
+    <view wx:if="{{false}}" class="inline-block pay-num-list">
+      <text class="inline-block pay-num-btn" bindtap='reduce'>-</text>
+      <text class="inline-block">{{company_num}}</text>
+      <text class="inline-block pay-num-btn" bindtap='plus'>+</text>
+    </view>
+  </view> -->
+  <view class="pay-list">
+    <view class="pay-title">有效期:</view>
+    <view class="pay-list-date">{{product.vaildStartTime}}——{{product.vaildLastTime}}</view>
+  </view>
+  <view class="pay-list">
+    <view class="pay-title">辅导周期:</view>
+    <view class="pay-list-date">{{product.coachStartTime}}——{{product.coachEndTime}}</view>
+  </view>
+  <view class="pay-btn-group box-sizing">
+    <!-- <view class="pay-btn-agreement">
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox">
+          <checkbox value="select"></checkbox>我同意《省税一哥签约辅导协议》
+        </label>
+      </checkbox-group>
+    </view> -->
+    <button class="pay-btn-sub" bindtap='goEditMsg'>
+      支付
+      <text>（¥{{product.productType=='1'? product.price*company_num:product.price}}）</text>
+    </button>
+  </view>
+</view>

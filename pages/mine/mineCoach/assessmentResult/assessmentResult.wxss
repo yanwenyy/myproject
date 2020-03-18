@@ -1,0 +1,52 @@
+/* pages/mine/mineCoach/assessmentResult/assessmentResult.wxss */
+@import "../coachDetail/coachDetail.wxss";
+.coach-model{
+  padding:0;
+  margin: 0;
+  border-bottom:1px solid #eee;
+  margin-bottom: 74rpx;
+}
+.coachDetail-zc-right-date {
+  border:none;
+}
+.assessmentResult-body{
+  padding:69rpx 50rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+.assessmentResult-list{
+  margin-bottom: 74rpx;
+}
+.assessmentResult-list-title{
+  font-size:32rpx;
+  font-weight:bold;
+  margin-bottom: 34rpx;
+}
+.assessmentResult-list-star>image{
+  width: 39rpx;
+  height:38rpx;
+  margin-right: 16rpx;
+}
+.assessmentResult-list-msg{
+  font-size: 28rpx;
+  color:#666;
+  line-height: 45rpx;
+  word-break: break-all;
+}
+.eidt-assessmentResult{
+    width:690rpx;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background:rgba(245,106,50,1);
+    border-radius:12rpx;
+    color:#fff;
+    font-size: 32rpx;
+    margin: 90rpx auto;
+}
+.dot{
+  width:15rpx;
+  height:15rpx;
+  background:#000;
+  border-radius: 50%;
+}

@@ -1,0 +1,25 @@
+/* pages/scope/scope.wxss */
+.scope-body{
+  padding:0 53rpx;
+}
+.scope-body>button{
+  margin-top:70rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  color:#fff;
+  background: #F56A32;
+  border-radius: 12rpx;
+}
+.login-img{
+  text-align: center;
+  padding:94rpx 0 ;
+}
+.login-img>image{
+  width: 570rpx;
+  height:560rpx;
+}
+.login-msg{
+  font-size:32rpx;
+  color:#666;
+  line-height: 54rpx;
+}

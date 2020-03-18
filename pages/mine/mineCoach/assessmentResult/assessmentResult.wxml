@@ -1,0 +1,54 @@
+<!--评估结果pages/mine/mineCoach/assessmentResult/assessmentResult.wxml-->
+<view class="container">
+  <view class="assessmentResult-body box-sizing">
+    <view class="coach-model box-sizing">
+      <view>
+        <image src="../../../../img/coachDetail-zcbg.png" class="coachDetail-zc-left" mode="scaleToFill"></image>
+        <view class="coachDetail-zc-right inline-block">
+          <view class="coachDetail-zc-right-name">{{msg.title}}</view>
+          <view class="coachDetail-zc-right-date">{{msg.fileNum}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="assessmentResult-list">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 该政策对我司的影响度</view>
+      <view wx:if="{{result.related==1}}" class="assessmentResult-list-star">
+        <image src="{{starNum>0? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="1" mode="scaleToFill"></image>
+        <image src="{{starNum>1? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="2" mode="scaleToFill"></image>
+        <image src="{{starNum>2? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="3" mode="scaleToFill"></image>
+        <image src="{{starNum>3? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="4" mode="scaleToFill"></image>
+        <image src="{{starNum>4? '../../../../img/pg-star-sel.png':'../../../../img/pg-star.png'}}" data-value="5" mode="scaleToFill"></image>
+      </view>
+      <view wx:if="{{result==null||result==''||result.related==0}}" class="assessmentResult-list-star">
+            <image src="../../../../img/pg-star.png" data-value="1" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="2" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="3" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="4" mode="scaleToFill"></image>
+            <image src="../../../../img/pg-star.png" data-value="5" mode="scaleToFill"></image>
+          </view>
+    </view>
+    <view class="assessmentResult-list" wx:if="{{result.related==1}}">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 可能对我司产生如下影响</view>
+      <view class="assessmentResult-list-msg" wx:if="{{result.related==1}}">
+        {{result.affect||''}}
+      </view>
+    </view>
+    <view class="assessmentResult-list" wx:if="{{result.related==1}}">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 我的建议、意见</view>
+      <view class="assessmentResult-list-msg" wx:if="{{result.related==1}}">
+        {{result.opinion||''}}
+      </view>
+    </view>
+    <view class="assessmentResult-list" wx:if="{{result.related==1}}">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 需知晓部门及注意事项</view>
+      <view class="assessmentResult-list-msg" wx:if="{{result.related==1}}">
+        {{result.executive||''}}
+      </view>
+    </view>
+  </view>
+  <view bindtap="editAssessment" wx:if="{{source!='manager'}}" class="eidt-assessmentResult">修改</view>
+</view>

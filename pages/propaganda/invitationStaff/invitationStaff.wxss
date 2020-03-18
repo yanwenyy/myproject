@@ -1,0 +1,15 @@
+/* pages/propaganda/invitationStaff/invitationStaff.wxss */
+@import "../pay/pay.wxss";
+@import "../../share/inviteStaff/inviteStaff.wxss";
+.pay-msg-name{
+  text-align: center;
+  margin-top: 20rpx;
+}
+.pay-msg-money{
+  text-align: center;
+  /* margin-top: 110rpx; */
+  position: absolute;
+  bottom: 30rpx;
+  width: 100%;
+  left: 0;
+}

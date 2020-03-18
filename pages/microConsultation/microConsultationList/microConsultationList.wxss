@@ -1,0 +1,120 @@
+/* pages/microConsultation/microConsultationList/microConsultationList.wxss */
+
+.microConsultationList-head {
+  width: 100%;
+  height: 281rpx;
+  position: relative;
+}
+
+.microConsultationList-head-img, .microConsultationList-head-msg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.microConsultationList-head-msg-num {
+  width: 340rpx;
+  text-align: center;
+  height: 92rpx;
+  line-height: 92rpx;
+  background: #fff;
+  border-radius: 45rpx;
+  margin: 222rpx auto 0 auto;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.m-h-m-numOut {
+  width: 430rpx;
+}
+
+.m-h-m-numOut-msg {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.ques-rule {
+  width: 160rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 100rpx;
+  bottom: 90rpx;
+}
+.microConsultationList-body{
+  background: #F4F7FD;
+  min-height: 100vh;
+  height: auto;
+}
+.microConsultationList-list{
+  padding:30rpx;
+  margin-top:33rpx;
+}
+.microConsultationList-li{
+  padding:36rpx 46rpx;
+  margin-bottom: 30rpx;
+}
+.microConsultationList-li-head{
+  width: 60rpx;
+  height:60rpx;
+  margin-right: 21rpx;
+  position: relative;
+}
+.microConsultationList-li-img{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  background: #eee;
+  border-radius: 50%;
+  vertical-align: top;
+}
+.microConsultationList-li-head-mine{
+  width:36rpx;
+  height:21rpx;
+  line-height: 21rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 15rpx;
+  background: #F56A32;
+  border-radius: 11rpx;
+  position: absolute;
+  bottom:-5rpx;
+  left:12rpx;
+}
+.microConsultationList-li-msg{
+  width: 86%;
+  vertical-align: top;
+}
+.microConsultationList-li-name{
+  font-size:30rpx;
+  font-weight: 500;
+}
+.microConsultationList-li-ques{
+  font-size: 28rpx;
+  color:#666;
+  line-height: 44rpx;
+  word-break: break-all;
+}
+.microConsultationList-li-date{
+  font-size:24rpx;
+  color:#aaa;
+}
+.no-ques{
+  font-size: 28rpx;
+  color:#999;
+  text-align: center;
+  margin-top: 400rpx;
+}
+.go-ques{
+  width: 100rpx;
+  height:100rpx;
+  position: fixed;
+  bottom:90rpx;
+  right:32rpx;
+}
+.go-ques>image{
+  width: 100%;
+  height:100%;
+}

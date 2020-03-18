@@ -1,0 +1,27 @@
+<!--政策查询pages/search/searchPolicy/searchPolicy.wxml-->
+<view class="container">
+  <view class="searchPolicy-input box-sizing" bindtap='goSearchPolicyList'>
+    <image src="../../../img/policy-search.png" mode="scaleToFill" class="searchPolicy-img"></image>
+    <text>请输入查找的政策</text>
+  </view>
+  <view class="searchPolicy-ul">
+    <view class="searchPolicy-li" wx:for="{{list}}" wx:key="index">
+      <view class="searchPolicy-li-title">{{item.dateFormat}}</view>
+      <view class="coach-model box-sizing" wx:for="{{item.tbPolicyActions}}" wx:key="index" bindtap="goUnscramble" data-id="{{item.id}}" data-type="{{item.type}}">
+        <view class="coachDetail-zc-head">
+          {{item.officialReleaseDate}}
+        </view>
+        <view>
+          <image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+          <view class="coachDetail-zc-right inline-block">
+            <view class="coachDetail-zc-right-name">{{item.title}}</view>
+            <view class="coachDetail-zc-right-date">{{item.fileNum}}</view>
+            <view class="coachDetail-zc-right-class">
+              <text wx:for="{{item.tags}}" wx:if="{{item!=''}}" wx:key="*this" class="inline-block">{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

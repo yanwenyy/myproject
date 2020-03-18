@@ -1,0 +1,128 @@
+<!--pages/share/assessmentZcb/assessmentZcb.wxml-->
+<view class="container">
+  <view class="selfPresentationDetail-head">
+    <image src="../../../img/selfPresentationDetail-head.png" mode="scaleToFill" class="selfPresentationDetail-head-img"></image>
+    <view class="selfPresentationDetail-head-msg box-sizing">
+      <view class="selfPresentationDetail-h-m-date">
+        <text class="inline-block">财政政策变更评估报告 </text>
+      </view>
+      <view class="selfPresentationDetail-h-m-title">
+        <image src="{{msg.evluationUser.headImg}}" mode="scaleToFill"></image>
+        <view class="inline-block">{{msg.evluationUser.nickname}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="assessmentResult-body box-sizing">
+    <view class="selfPresentationDetail-notice">
+      与我司相关
+      <text class="orange">{{msg.evaluations.releateList.length}}</text>条
+    </view>
+    <view wx:for="{{msg.evaluations.releateList}}" wx:key="index" class="selfPresentationDetail-body">
+      <view class="coach-model box-sizing">
+        <view>
+          <image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+          <view class="coachDetail-zc-right inline-block">
+            <view class="coachDetail-zc-right-name">
+              {{item.title}}
+            </view>
+            <view class="coachDetail-zc-right-date">
+              {{item.fileNum}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="assessmentResult-body box-sizing">
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 该政策对我司的影响度
+            <!-- <text class="orange edit-pg">修改</text> -->
+          </view>
+          <view class="assessmentResult-list-star">
+            <image src="{{item.affectExtent>0? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="1" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>1? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="2" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>2? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="3" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>3? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="4" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>4? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="5" mode="scaleToFill"></image>
+          </view>
+        </view>
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 该政策可能对我司产生的影响</view>
+          <view class="assessmentResult-list-msg">
+            {{item.affect||''}}
+          </view>
+        </view>
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 我的建议、意见</view>
+          <view class="assessmentResult-list-msg">
+            {{item.opinion||''}}
+          </view>
+        </view>
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 需知晓部门及注意事项</view>
+          <view class="assessmentResult-list-msg">
+            {{item.executive||''}}
+          </view>
+        </view>
+        <!-- <view class="assessmentResult-footer">
+          <view class="inline-block">
+            <image class="assessmentResult-footer-img" src="../../../img/assessment-zf.png" mode="scaleToFill"></image>
+            <text>转发</text>
+          </view>
+          <view class="assessmentResult-footer-line"></view>
+          <view class="inline-block" data-id="{{item.policyId}}">
+            <image class="assessmentResult-footer-img" src="../../../img/assessment-ck.png" mode="scaleToFill"></image>
+            <text>查看</text>
+          </view>
+        </view> -->
+      </view>
+    </view>
+    <view class="selfPresentationDetail-notice">
+      与我司不相关
+      <text class="orange">{{msg.evaluations.noReleateList.length}}</text>条
+    </view>
+    <view wx:for="{{msg.evaluations.noReleateList}}" wx:key="index" class="selfPresentationDetail-body">
+      <view class="coach-model box-sizing">
+        <view>
+          <image src="{{'http://'+item.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+          <view class="coachDetail-zc-right inline-block">
+            <view class="coachDetail-zc-right-name">
+              {{item.title}}
+            </view>
+            <view class="coachDetail-zc-right-date">
+              {{item.fileNum}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="assessmentResult-body box-sizing">
+        <view class="assessmentResult-list">
+          <view class="assessmentResult-list-title">
+            <text class="dot inline-block"></text> 该政策对我司的影响度
+            <!-- <text class="orange edit-pg">修改</text> -->
+          </view>
+          <view class="assessmentResult-list-star">
+            <image src="{{item.affectExtent>0? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="1" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>1? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="2" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>2? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="3" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>3? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="4" mode="scaleToFill"></image>
+            <image src="{{item.affectExtent>4? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="5" mode="scaleToFill"></image>
+          </view>
+        </view>
+        <!-- <view class="assessmentResult-footer">
+          <view class="inline-block">
+            <image class="assessmentResult-footer-img" src="../../../img/assessment-zf.png" mode="scaleToFill"></image>
+            <text>转发</text>
+          </view>
+          <view class="assessmentResult-footer-line"></view>
+          <view class="inline-block" bindtap="goResult" data-id="{{item.policyId}}">
+            <image class="assessmentResult-footer-img" src="../../../img/assessment-ck.png" mode="scaleToFill"></image>
+            <text>查看</text>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

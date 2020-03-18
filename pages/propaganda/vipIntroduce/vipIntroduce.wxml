@@ -1,0 +1,77 @@
+<!--会员权益pages/propaganda/vipIntroduce/vipIntroduce.wxml-->
+<view>
+  <image class="vipIntroduce-head" src="../../../img/intro-head.png" mode="scaleToFill"></image>
+  <view class="vipIntroduce-body box-sizing">
+      <view class="vipIntroduce-title">
+        <image src="../../../img/intro-title1.png" mode="scaleToFill"></image>
+      </view>
+      <view class="vipIntroduce-model">
+        <view class="vipIntroduce-title">省税一哥企业版12期政策辅导</view>
+        <view class="vipIntroduce-zcjd box-sizing">
+            <view class="inline-block">
+              <image class="vipIntroduce-zcjd-img" src="../../../img/intro-zcfd1.png" mode="scaleToFill"></image>
+              <view>政策解读</view>
+            </view> 
+            <view class="inline-block">
+              <image class="vipIntroduce-zcjd-img" src="../../../img/intro-zcfd2.png" mode="scaleToFill"></image>
+              <view>政策评测</view>
+            </view> 
+            <view class="inline-block">
+              <image class="vipIntroduce-zcjd-img" src="../../../img/intro-zcfd3.png" mode="scaleToFill"></image>
+              <view>政策报告</view>
+            </view> 
+        </view>
+      </view>
+      <view class="vipIntroduce-model">
+        <view class="vipIntroduce-title">企业下3个授权账号</view>
+        <view class="vipIntroduce-sqzh box-sizing">
+            <view class="inline-block">
+              <image class="vipIntroduce-sqzh-img" src="../../../img/intro-zh1.png" mode="scaleToFill"></image>
+              <view>管理层（1人）</view>
+            </view> 
+            <view class="inline-block">
+              <image class="vipIntroduce-sqzh-img" src="../../../img/intro-zh2.png" mode="scaleToFill"></image>
+              <view>员工（2人）</view>
+            </view>
+        </view>
+      </view>
+      <view class="vipIntroduce-model">
+        <view class="vipIntroduce-title">会员福利</view>
+        <view class="vipIntroduce-hyfl box-sizing">
+            <!-- <view class="vipIntroduce-hyfl-list">
+                <image class="vipIntroduce-hyfl-img" src="../../../img/intro-hyfl1.png" mode="scaleToFill"></image>
+                <view class="inline-block">
+                  <view class="vipIntroduce-hyfl-list-title">线上咨询</view>
+                  <view class="vipIntroduce-hyfl-list-msg">企业100次免费线上咨询</view>
+                </view>
+            </view>
+            <view class="vipIntroduce-hyfl-list">
+                <image class="vipIntroduce-hyfl-img" src="../../../img/intro-hyfl2.png" mode="scaleToFill"></image>
+                <view class="inline-block">
+                  <view class="vipIntroduce-hyfl-list-title">行业手册</view>
+                  <view class="vipIntroduce-hyfl-list-msg">电子版《行业政策梳理与风险提示手册》</view>
+                </view>
+            </view> -->
+            <view class="vipIntroduce-hyfl-list">
+                <image class="vipIntroduce-hyfl-img" src="../../../img/intro-hyfl3.png" mode="scaleToFill"></image>
+                <view class="inline-block">
+                  <view class="vipIntroduce-hyfl-list-title">证书</view>
+                  <view class="vipIntroduce-hyfl-list-msg">年度测评合格后办法《年度税收政策精通证书》</view>
+                </view>
+            </view>
+        </view>
+      </view>
+      <view class="vipIntroduce-model">
+        <view class="vipIntroduce-date box-sizing">
+            <view class="vipIntroduce-date-list">
+              <view class="vipIntroduce-date-list-title">有效期：</view>
+              <view>开通日期——次年当月15号</view>
+            </view>
+            <view class="vipIntroduce-date-list">
+              <view class="vipIntroduce-date-list-title">辅导周期：</view>
+              <view>会员开通月算起，12个自然月</view>
+            </view>
+        </view>
+      </view>
+  </view>
+</view>

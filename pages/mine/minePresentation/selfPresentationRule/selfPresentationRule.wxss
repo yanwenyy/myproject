@@ -1,0 +1,34 @@
+/* pages/mine/minePresentation/selfPresentationRule/selfPresentationRule.wxss */
+.selfPresentationRule-body{
+  padding:30rpx 40rpx;
+  font-size:28rpx;
+  color:#666;
+  line-height: 44rpx;
+}
+.selfPresentationRule-head{
+  width: 100%;
+  height:193rpx;
+}
+.selfPresentationRule-title1{
+  font-size:33rpx;
+  color:#333;
+  font-weight: bold;
+  margin:48rpx 0 31rpx 0;
+}
+.selfPresentationRule-title2{
+  font-size:30rpx;
+  color:#333;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+.selfPresentationRule-list{
+  margin-bottom: 56rpx;
+}
+.selfPresentationRule-list-msg{
+  margin-left: 37rpx;
+}
+.selfPresentationRule-list-img{
+  width: 610rpx;
+  margin-left:37rpx;
+  margin-top: 30rpx;
+}

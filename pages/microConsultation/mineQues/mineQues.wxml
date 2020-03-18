@@ -1,0 +1,17 @@
+<!--我的提问pages/microConsultation/mineQues/mineQues.wxml-->
+<view class="container">
+  <view wx:if="{{list!=''}}" class="mineQues-li coach-model box-sizing" wx:for="{{list}}" wx:key="index" bindtap="goDestail" data-id="{{item.uuid}}" data-uuid="{{item.phoneNumber}}">
+    <view class="mineQues-li-msg">{{item.content}}</view>
+    <view class="mineQues-li-footer">
+      <text>{{item.date}}</text>
+      <text wx:if="{{item.status==1}}" class="orange">抢答倒计时:<text class=''>{{item.date_change.hou}}</text>:<text class=''>{{item.date_change.min}}</text>:<text class=''>{{item.date_change.sec}}</text></text>
+      <text wx:if="{{item.status==2}}" class="orange">未采纳</text>
+      <text wx:if="{{item.status==3||item.status==4||item.status==9}}">已采纳</text>
+      <text wx:if="{{item.status==5||item.status==6||item.status==7||item.status==8}}">无人应答</text>
+    </view>
+  </view>
+  <view class="no-msg"  wx:if="{{list==''}}">
+    <image src="../../../img/no-tw.png" mode="scaleToFill"></image>
+    <view>您还没有提问过呢 </view>
+  </view>
+</view>

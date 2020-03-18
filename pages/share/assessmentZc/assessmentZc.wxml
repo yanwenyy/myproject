@@ -1,0 +1,58 @@
+<!--pages/share/assessmentZc/assessmentZc.wxml-->
+<view class="container">
+  <view class="selfPresentationDetail-head">
+    <image src="../../../img/selfPresentationDetail-head.png" mode="scaleToFill" class="selfPresentationDetail-head-img"></image>
+    <view class="selfPresentationDetail-head-msg box-sizing">
+      <view class="selfPresentationDetail-h-m-date">
+        <text class="inline-block">财政政策变更评估报告 </text>
+      </view>
+      <view class="selfPresentationDetail-h-m-title">
+        <image src="{{result.headImg}}" mode="scaleToFill"></image>
+        <view class="inline-block">{{result.nickname}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="assessmentResult-body box-sizing">
+    <view class="coach-model box-sizing">
+      <view>
+        <image src="{{'http://'+result.icon}}" class="coachDetail-zc-left" mode="scaleToFill"></image>
+        <view class="coachDetail-zc-right inline-block">
+          <view class="coachDetail-zc-right-name">{{result.title}}</view>
+          <view class="coachDetail-zc-right-date">{{result.fileNum}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="assessmentResult-list">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 该政策对我司的影响度</view>
+      <view class="assessmentResult-list-star">
+        <image src="{{starNum>0? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="1" mode="scaleToFill"></image>
+        <image src="{{starNum>1? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="2" mode="scaleToFill"></image>
+        <image src="{{starNum>2? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="3" mode="scaleToFill"></image>
+        <image src="{{starNum>3? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="4" mode="scaleToFill"></image>
+        <image src="{{starNum>4? '../../../img/pg-star-sel.png':'../../../img/pg-star.png'}}" data-value="5" mode="scaleToFill"></image>
+      </view>
+    </view>
+    <view class="assessmentResult-list">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 可能对我司产生如下影响</view>
+      <view class="assessmentResult-list-msg">
+        {{result.affect||''}}
+      </view>
+    </view>
+    <view class="assessmentResult-list">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 我的建议、意见</view>
+      <view class="assessmentResult-list-msg">
+        {{result.opinion||''}}
+      </view>
+    </view>
+    <view class="assessmentResult-list">
+      <view class="assessmentResult-list-title">
+        <text class="dot inline-block"></text> 需知晓部门及注意事项</view>
+      <view class="assessmentResult-list-msg">
+        {{result.executive||''}}
+      </view>
+    </view>
+  </view>
+</view>

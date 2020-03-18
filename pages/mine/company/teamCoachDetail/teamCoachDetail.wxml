@@ -1,0 +1,29 @@
+<!--团队辅导详情pages/mine/company/teamCoachDetail/teamCoachDetail.wxml-->
+<view class="container">
+  <view wx:if="{{list!=''&&list!=null}}">
+    <view class="teamCoachDetail-head">
+      <image class="teamCoachDetail-head-bg" src="../../../../img/selfPresentationDetail-head.png" mode="scaleToFill"></image>
+      <view class="teamCoachDetail-head-msg box-sizing">
+        <view class="teamCoachDetail-head-msg-name">团队辅导成绩</view>
+        <view>
+          <text>{{date}}</text> </view>
+      </view>
+    </view>
+    <view class="teamCoachDetail-list coach-model box-sizing" wx:for="{{list}}" wx:key="index" bindtap="goCard" data-uuid="{{item.uuid}}" wx:if="{{item.uuid!=userInfo.uuid}}">
+      <image class="teamCoachDetail-list-img" src="{{item.headImg}}" mode="scaleToFill"></image>
+      <view class="inline-block teamCoachDetail-list-msg">
+        <view class="inline-block teamCoachDetail-list-name">{{item.realName||item.userName}}</view>
+        <view class="inline-block teamCoachDetail-list-percent">正确率
+          <text class="orange">{{item.rightPercent}}%</text>
+        </view>
+        <view class="inline-block orange teamCoachDetail-grade">
+          {{item.rightPercent>90?'优秀':(item.rightPercent>70?'合格':'不合格')}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-msg" wx:if="{{list==''||list==null}}">
+    <image src="../../../../img/no-fdcj.png" mode="scaleToFill"></image>
+    <view>暂时还无成绩哦~</view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<!--分享邀请同事pages/share/inviteStaff/inviteStaff.wxml-->
+<view class="share-body">
+  <image class="share-img-bg" src="" mode="scaleToFill"></image>
+  <view class="shadow">
+    <view wx:if="{{!canvas}}" class="shadow-body coach-model box-sizing">
+      <view class="shadow-title">
+        分享邀请同事
+        <image class="close-shadow" mode="scaleToFill" src="../../../img/shadow-close.png"></image>
+      </view>
+      <view class="shadow-msg">
+        <view class="inline-block shadow-msg-model">
+          <image class="shadow-msg-model-img" src="../../../img/share-zf.png" mode="scaleToFill"></image>
+          <button open-type="share" class="shadow-msg-model-btn"></button>
+        </view>
+        <view class="inline-block shadow-msg-model" wx:if="{{false}}">
+          <image class="shadow-msg-model-img" src="../../../img/share-tp.png" mode="scaleToFill"></image>
+          <button class="shadow-msg-model-btn" bindtap='share'></button>
+        </view>
+      </view>
+    </view>
+    <view class="canvas-bg box-sizing" style="margin-top:{{margin}}" bindtap="closeCanvas">
+      <canvas canvas-id="shareImg" class="canvas"></canvas>
+      <button class="save-canvas" catchtap='save'>保存分享图</button>
+    </view>
+  </view>
+</view>

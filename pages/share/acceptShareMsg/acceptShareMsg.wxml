@@ -1,0 +1,39 @@
+<!--pages/share/acceptShareMsg/acceptShareMsg.wxml-->
+<view class="acceptShareMsg-body">
+  <image src="../../../img/acceptShareMsg-bg.png" mode="scaleToFill" class="acceptShareMsg-bg"></image>
+  <view class="scope-body box-sizing" wx:if="{{!hasUserInfo && canIUse}}">
+    <view class="scope-msg">欢迎使用省税一哥,请授权登录获取更好的体验</view>
+    <button wx:if="{{scope}}" class="jionTeamBtn box-sizng" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      授权登录
+    </button>
+    <button wx:if="{{!scope}}"  class="jionTeamBtn box-sizng" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        进入页面
+    </button> 
+  </view>
+  <view class="acceptShareMsg-msg box-sizing" wx:if="{{hasUserInfo}}">
+    <view class="acceptShareMsg-model box-sizing">
+      <view class="acceptShareMsg-model-head">
+        <image class="acceptShareMsg-model-head-bg" src="../../../img/acceptShareMsg-msg-bg.png" mode="scaleToFill"></image>
+        <view class="acceptShareMsg-model-head-msg box-sizing">
+          <view class="acceptShareMsg-model-head-msg-title">{{msg.companyName}}</view>
+          <view class="acceptShareMsg-model-head-msg-footer">
+            <view class="inline-block acceptShareMsg-model-head-msg-footer-name">
+              <image class="user-img" src="{{msg.headImg}}" mode="scaleToFill"></image>
+              <text>{{msg.nickname}}</text>
+            </view>
+            <text>邀请您的加入</text>
+          </view>
+        </view>
+      </view>
+      <view class="acceptShareMsg-list">
+        <view>您的企业已开通《省税一哥》企业版会员</view>
+        <view>快快加入吧！</view>
+      </view>
+      <view class="acceptShareMsg-list">
+        <view>会员服务周期：</view>
+      <view>{{msg.vaildStartTime}}——{{msg.vaildLastTime}}</view>
+      </view>
+    </view>
+    <button class="jionTeamBtn" bindtap="goAccept">立即加入团队</button>
+  </view>
+</view>

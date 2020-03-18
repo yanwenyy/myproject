@@ -1,13 +1,31 @@
 <!--测试题pages/test/test.wxml-->
 <view>
-    <text>第1题（选择题)(1/4)</text>
-    <view class='quest_container' wx:for="{{quest}}" wx:key="id" wx:for-index="outterIndex" wx:if="{{showNum==outterIndex}}">
-      <text>{{item.question}}</text>
-      <view wx:for="{{item.answers}}" wx:key="content" bindtap="answerSelected" data-outidx='{{outterIndex}}' data-idx="{{index}}" data-value="{{item.content}}" class="item {{item.selected?'active':''}}">
-        <text>{{item.content}}</text>
-      </view>
+  <view class="test-process box-sizing">
+    <view class="inline-block">
+      <text class="test-num">{{showNum}}</text>/{{quest.length}}
     </view>
-    <button bindtap='preQues'>上一题</button>
-    <button bindtap='nextQues'>下一题</button>
-    <button wx:if="{{quest.length-1==showNum}}" bindtap='subResult'>提交</button>
+  </view>
+  <view class="test-body box-sizing">
+    <view class='quest_container' wx:for="{{quest}}" wx:key="id" wx:for-index="outterIndex" wx:if="{{showNum-1==outterIndex}}">
+      <view class="test-body-title">
+        {{item.type==1?'单选题':(item.type==2?'多选题 ':'判断题')}}
+      </view>
+      <text class="test-question inline-block">{{item.title}}</text>
+      <view class="test-answers-list">
+        <view wx:for="{{item.answers}}" wx:key="content" bindtap="answerSelected" data-outidx='{{outterIndex}}' data-idx="{{index}}" data-value="{{item.content}}" class="test-answers box-sizing item {{item.selected?'active':''}}">
+          <text>{{item.code+"  "+item.content}}</text>
+          <view class="inline-block">
+            <image wx:if="{{item.sel==true}}" src="../../../../../../../img/wrongTest-right.png" mode="scaleToFill" class="answer-img"></image>
+            <image wx:if="{{item.sel==false}}" src="../../../../../../../img/wrongTest-wrong.png" mode="scaleToFill" class="answer-img"></image>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="right-answer">正确答案  <text>{{item.right}}</text></view> -->
+    </view>
+    <view class="test-btn">
+      <button class="inline-block btn-pre" wx:if="{{showNum>1}}" bindtap='preQues'>上一题</button>
+      <button class="inline-block btn-next" wx:if="{{quest.length>showNum}}" bindtap='nextQues'>下一题</button>
+      <button class="inline-block btn-done" wx:if="{{quest.length==showNum}}" bindtap='subResult'>提交</button>
+    </view>
+  </view>
 </view>

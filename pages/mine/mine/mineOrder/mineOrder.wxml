@@ -1,0 +1,26 @@
+<!--我的订单pages/mine/mine/mineOrder/mineOrder.wxml-->
+<view class="container">
+    <view class="mineOrder-ul">
+        <view class="mineOrder-li coach-model box-sizing" wx:for="{{list}}" wx:key="index">
+          <view class="mineOrder-li-title">
+              <view class="inline-block">订单</view>
+              <view class="inline-block orange">{{item.status==0?'支付成功':'支付异常'}}</view>
+          </view>
+          <view class="mineOrder-li-msg">
+              <image class="mineOrder-li-img" src="{{item.productType==0?'../../../../img/order-gr.png':(item.productType==1?'../../../../img/order-gs.png':'../../../../img/order-bk.png')}}" mode="scaleToFill"></image>
+              <view class="inline-block mineOrder-li-date">
+                  <view class="mineOrder-li-date-name">
+                    {{item.productType==0?'省税一哥—个人版':(item.productType==1?'省税一哥—企业版':'测试补考')}}
+                  </view>
+                  <view wx:if="{{item.productType!=2}}">有效期：{{item.vaildStartTime}}-{{item.vaildLastTime}}</view>
+                  <view wx:if="{{item.productType==2}}">补考月份: {{item.makeUpDate}}</view>
+                  <view>支付时间：{{item.paysuctime}}  </view>
+              </view>
+          </view>
+          <view class="mineOrder-li-footer">
+              <view class="inline-block"> </view>
+              <view class="inline-block mineOrder-li-footer-money">实付：<text>¥{{item.unitPrice}}</text></view>
+          </view>
+        </view>
+    </view>
+</view>
