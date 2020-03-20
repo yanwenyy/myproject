@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/share/share",
     "pages/scope/scope",
@@ -56,7 +55,6 @@
     "pages/mine/minePresentation/selfPresentationRule/selfPresentationRule",
     "pages/mine/minePresentation/managePresentationRule/managePresentationRule",
     "pages/propaganda/vipIntroduce/vipIntroduce"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -33,7 +33,8 @@ Page({
         tryVipModel: true,
         companyName: options.companyName
       })
-    }
+    };
+    // wx.hideShareMenu()
   },
   onShow: function (options) {
     var that = this;
@@ -213,13 +214,13 @@ Page({
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target);
-
+      return {
+        title: app.globalData.userInfo.companyName + '邀请您的加入',
+        path: 'pages/share/acceptShareMsg/acceptShareMsg?uuid=' + app.globalData.userInfo.uuid,
+        imageUrl: '../../img/share-yq.png'
+      }
     }
-    return {
-      title: app.globalData.userInfo.companyName + '邀请您的加入',
-      path: 'pages/share/acceptShareMsg/acceptShareMsg?uuid=' + app.globalData.userInfo.uuid,
-      imageUrl: '../../img/share-yq.png'
-    }
+   
   },
 
   //倒计时函数
