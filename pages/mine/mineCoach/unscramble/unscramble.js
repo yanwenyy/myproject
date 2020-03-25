@@ -235,5 +235,77 @@ Page({
     wx.navigateTo({
       url: 'unscramble?source='+this.data.source+'&id=' + e.currentTarget.dataset.id
     })
+  },
+  downLoad:function(e){
+    var that=this,
+        dataUrl="https://"+e.currentTarget.dataset.url;
+    var url="https://"+e.currentTarget.dataset.url,
+        fileUrl=url.split("/"),
+        fileUrl=fileUrl[fileUrl.length-1];
+        var rootPath = wx.env.USER_DATA_PATH,
+        cachePath = rootPath+"/cache";
+        wx.getFileSystemManager().access({
+          // path: cachePath+"/"+fileUrl,
+          path:cachePath+"/"+fileUrl,
+          success: function(res) {
+            console.log(res);
+            wx.openDocument({
+              filePath:cachePath+"/"+fileUrl,
+              success: function (res) {
+                console.log('打开文档成功')
+              }
+            })
+          },
+          fail: function(res) {
+            wx.getFileSystemManager().mkdir({
+              dirPath: cachePath,
+              recursive: true,
+              success: function(res) {
+                console.log(res);
+               that.downLoadHS(dataUrl,cachePath,fileUrl)
+              },
+              fail: function(res) {
+                console.log(res);
+                if(res.errMsg.indexOf("already exists")>-1){
+                  that.downLoadHS(dataUrl,cachePath,fileUrl)
+                }
+              }
+            })
+          }
+        })
+
+  },
+  downLoadHS:function(url,cachePath,fileUrl){
+    wx.showLoading({
+      title: '下载中',
+    });   
+      wx.downloadFile({
+        url:url, //仅为示例，并非真实的资源
+        filePath:cachePath+'/'+fileUrl,
+        success (res) {
+          // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+          wx.hideLoading();
+          if (res.statusCode === 200) {
+            // const filePath = res.filePath;
+            // console.log(filePath+"/"+fileUrl)
+            wx.openDocument({
+              filePath: res.filePath,
+              success: function (res) {
+                console.log('打开文档成功')
+              }
+            })
+            console.log(res.filePath)
+          }
+        },
+        fail:function(res){
+          console.log(res)
+          wx.hideLoading();
+          wx.showToast({
+            title: "下载失败",
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
   }
 })

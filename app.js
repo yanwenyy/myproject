@@ -8,7 +8,7 @@ App({
      
     }
     //全局公共变量设置
-    this.puplic = this.test;
+    this.puplic = this.formal;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -116,10 +116,10 @@ App({
     question_src:'https://test.jieshuibao.com/jsb_webserver/showImg/question/'
   },
   public:{
-    url: 'https://test.jieshuibao.com/jsb_applet/',
-    token_url:'https://test.jieshuibao.com/jsb_webserver/',
-    head_src: 'https://test.jieshuibao.com/jsb_webserver/showImg/head/',
-    question_src:'https://test.jieshuibao.com/jsb_webserver/showImg/question/'
+    url:'https://1g.jieshuibao.com',
+    token_url: 'https://api.jieshuibao.com/',
+    head_src: 'https://api.jieshuibao.com/showImg/head/',
+    question_src: 'https://api.jieshuibao.com/showImg/question/'
   },
   succBack:function(e){
    if(e==2){

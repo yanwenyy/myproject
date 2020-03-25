@@ -21,7 +21,7 @@
         <view class="unscramble-msg-enclosure-title">
           小程序暂不支持下载附件
         </view>
-        <view class="unscramble-msg-enclosure-li" wx:for="{{yw.annexs}}" wx:key="index">
+        <view class="unscramble-msg-enclosure-li" wx:for="{{yw.annexs}}" wx:key="index" data-url="{{item.fileOriginalName}}" bindtap="downLoad">
           <image src="../../../../img/enclosure-img.png" mode="scaleToFill"></image>
           <view class="inline-block" data-id="{{item.id}}">{{item.fileRealName}}</view>
         </view>

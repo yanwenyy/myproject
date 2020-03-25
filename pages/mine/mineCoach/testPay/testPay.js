@@ -23,11 +23,11 @@ Page({
       id: options.id,
     });
     //商品详情
-    app.ajax("/applet/getGoods",{
+    app.ajax("/applet/goods/list",{
       "productType": 2
       },function(res){
       that.setData({
-        goods:res.data.data
+        goods:res.data.data[0]
       })
     });
 
